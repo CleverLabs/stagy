@@ -19,6 +19,9 @@ gem "slim"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "octokit", "~> 4.0"
 
+gem "omniauth"
+gem "omniauth-github"
+
 group :development, :test do
   gem "pry"
   gem "standard"

@@ -1,1 +1,5 @@
-h1 Slim
+- if authenticated?
+  h1 = "Hello, #{current_user.name}!"
+  div = link_to "Log out", sessions_path, method: :delete
+- else
+    = link_to "Log in", "/auth/github"
