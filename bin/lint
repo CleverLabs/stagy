@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bundle exec standardrb --fix &
+yarn run -s tslint -p . --fix app/javascript/**/*.ts

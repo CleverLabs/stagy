@@ -6,16 +6,17 @@ describe ApplicationController do
   describe "#current_user" do
     controller(described_class) do
       def index
-        render plain: current_user.name
+        render plain: current_user.full_name
       end
     end
 
     let(:name) { "Name" }
-    let(:user) { instance_double(Github::User, name: name) }
+    let(:user_id) { 42 }
+    let(:user) { instance_double(User, full_name: name) }
 
     before do
-      expect(Github::User).to receive(:new).and_return(user)
-      session[:user] = {id: 1}
+      expect(User).to receive(:find).with(user_id).and_return(user)
+      session[:user_id] = user_id
     end
 
     it "returns wrapped user" do
@@ -32,7 +33,7 @@ describe ApplicationController do
     end
 
     before do
-      session[:user] = nil
+      session[:user_id] = nil
     end
 
     it "check is user authenticated" do
