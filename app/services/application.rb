@@ -12,6 +12,10 @@ class Application
     payload.head.ref
   end
 
+  def secrets
+    @repo.secrets.map { |secret| {secret.key => secret.value} }.inject(:merge)
+  end
+
   private
 
   def payload

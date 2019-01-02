@@ -10,17 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_145716) do
+ActiveRecord::Schema.define(version: 2019_01_02_142603) do
   create_table "repos", force: :cascade do |t|
-    t.string "path"
-    t.string "user_id"
+    t.string "path", null: false
+    t.integer "user_id", null: false
     t.string "public_key"
     t.string "private_key"
   end
 
+  create_table "secrets", force: :cascade do |t|
+    t.integer "repo_id", null: false
+    t.string "key", null: false
+    t.string "value", null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "auth_provider"
-    t.string "auth_uid"
+    t.string "auth_provider", null: false
+    t.string "auth_uid", null: false
     t.string "full_name"
   end
 end
