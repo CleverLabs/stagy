@@ -21,6 +21,8 @@ gem "octokit", "~> 4.0"
 
 gem "omniauth"
 gem "omniauth-github"
+gem "sshkey"
+gem "git"
 
 group :development, :test do
   gem "pry"
