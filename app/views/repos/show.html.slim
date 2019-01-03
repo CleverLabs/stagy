@@ -1,0 +1,6 @@
+h1 = @repo.path
+
+- @repo.secrets.each do |secret|
+  = secret.key
+  | =
+  = secret.value

@@ -6,6 +6,7 @@ describe Github::User do
   subject { described_class.new(omniauth_hash) }
 
   let(:new_name) { "Oleg Petrov" }
+  let(:new_token) { "TOKEN" }
   let(:omniauth_hash) do
     {
       "provider" => "github",
@@ -13,6 +14,9 @@ describe Github::User do
       "info" => {
         "name" => new_name,
       },
+      "credentials" =>  {
+        "token" => new_token
+      }
     }
   end
 
@@ -22,6 +26,7 @@ describe Github::User do
 
     before do
       expect(User).to receive(:find_or_create_by!).with(auth_provider: "github", auth_uid: 1234567).and_return(user)
+      expect(user).to receive(:update).with(token: new_token)
       expect(user).to receive(:update).with(full_name: new_name)
     end
 

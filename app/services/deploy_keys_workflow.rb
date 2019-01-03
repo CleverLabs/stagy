@@ -21,6 +21,6 @@ class DeployKeysWorkflow
   end
 
   def client
-    @client ||= Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"])
+    @_client ||= Octokit::Client.new(access_token: @repo.user.token)
   end
 end

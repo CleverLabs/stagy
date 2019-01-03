@@ -1,5 +1,7 @@
 module Github
   class User
+    TOKEN_PATH = %w[credentials token]
+    NAME_PATH = %w[info name]
     PROVIDER = "github"
 
     def initialize(omniauth_user)
@@ -8,6 +10,7 @@ module Github
 
     def identify
       ::User.find_or_create_by!(user_uniq_id).tap do |user|
+        user.update(token: token) if user.token.nil?
         user.update(full_name: full_name) unless user.full_name == full_name
       end
     end
@@ -15,7 +18,11 @@ module Github
     private
 
     def full_name
-      @omniauth_user.dig("info", "name")
+      @omniauth_user.dig(*NAME_PATH)
+    end
+
+    def token
+      @omniauth_user.dig(*TOKEN_PATH)
     end
 
     def user_uniq_id
