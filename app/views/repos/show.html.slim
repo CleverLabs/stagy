@@ -1,6 +1,9 @@
-h1 = @repo.path
+#repos-page
+  h1 = @repo.path
 
-- @repo.secrets.each do |secret|
-  = secret.key
-  | =
-  = secret.value
+  #secrets[data-repo-id="#{params[:id]}"]
+
+  #secret-input
+    input type="text" id='secret-key'
+    input type="text" id='secret-value'
+    button#secret-add Add

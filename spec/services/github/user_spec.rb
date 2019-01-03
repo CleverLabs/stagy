@@ -14,9 +14,9 @@ describe Github::User do
       "info" => {
         "name" => new_name,
       },
-      "credentials" =>  {
-        "token" => new_token
-      }
+      "credentials" => {
+        "token" => new_token,
+      },
     }
   end
 
