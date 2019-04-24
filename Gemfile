@@ -24,8 +24,11 @@ gem "omniauth-github"
 gem "sshkey"
 gem "git"
 
+gem "platform-api"
+
 group :development, :test do
   gem "pry"
+  gem "pry-rails"
   gem "standard"
 end
 
