@@ -6,5 +6,5 @@ class BuildAction < ApplicationRecord
 
   validates :action, presence: true
 
-  enum action: %i[create update reload destroy]
+  enum action: %i[create_instance update_instance reload_instance destroy_instance]
 end

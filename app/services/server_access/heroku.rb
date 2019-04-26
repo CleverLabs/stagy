@@ -2,22 +2,27 @@
 
 module ServerAccess
   class Heroku
-    def initialize
+    def initialize(name:)
       @heroku = PlatformAPI.connect_oauth(ENV["HEROKU_TOKEN"])
+      @name = name
     end
 
-    def create(name:)
-      @heroku.app.create(name: name)
+    def create
+      @heroku.app.create(name: @name)
+    end
+
+    def build_addons
+      @heroku.addon.create(@name, { plan: 'heroku-postgresql:hobby-basic' })
     end
 
     def update; end
 
-    def restart(name:)
-      heroku.dyno.restart_all(name)
+    def restart
+      @heroku.dyno.restart_all(@name)
     end
 
-    def destroy(name:)
-      heroku.app.delete(name)
+    def destroy
+      @heroku.app.delete(@name)
     end
   end
 end
