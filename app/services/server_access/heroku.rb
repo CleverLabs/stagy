@@ -12,7 +12,7 @@ module ServerAccess
     end
 
     def build_addons
-      @heroku.addon.create(@name, { plan: 'heroku-postgresql:hobby-basic' })
+      @heroku.addon.create(@name, plan: "heroku-postgresql:hobby-dev")
     end
 
     def update; end
@@ -23,6 +23,10 @@ module ServerAccess
 
     def destroy
       @heroku.app.delete(@name)
+    end
+
+    def setup_environment(env)
+      @heroku.config_var.update(name, env)
     end
   end
 end

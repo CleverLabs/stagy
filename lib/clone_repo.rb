@@ -10,16 +10,9 @@ class CloneRepo
   CLONE_COMMAND = "git clone %<git_path>s %<dest>s"
   GITHUB_URL = "git@github.com:%<repo_path>s.git"
 
-  def initialize(repo)
-    @repo = repo
-  end
-
-  def self.with_repo(repo)
-    clone = new(repo)
-    clone.call
-    yield(clone.repo_dir) if block_given?
-  ensure
-    FileUtils.rm_rf(clone.repo_dir)
+  def initialize(repo_path, private_key)
+    @repo_path = repo_path
+    @private_key = private_key
   end
 
   def call
@@ -33,7 +26,7 @@ class CloneRepo
 
   def repo_dir
     @_repo_dir ||= File.join(TEMP_FOLDER, [
-      *@repo.path.split("/"),
+      *@repo_path.split("/"),
       SecureRandom.hex(4)
     ].join("-"))
   end
@@ -41,7 +34,7 @@ class CloneRepo
   private
 
   def ssh_url
-    format(GITHUB_URL, repo_path: @repo.path)
+    format(GITHUB_URL, repo_path: @repo_path)
   end
 
   def with_env
@@ -54,7 +47,7 @@ class CloneRepo
   def write_temp_key!
     FileUtils.mkdir_p(File.join(TEMP_FOLDER, TEMP_KEYS_DIR))
     filename = File.join(TEMP_FOLDER, TEMP_KEYS_DIR, SecureRandom.hex(16))
-    File.write(filename, @repo.private_key)
+    File.write(filename, @private_key)
     File.new(filename).chmod(0o600)
     Pathname.new(filename).realpath.to_s
   end

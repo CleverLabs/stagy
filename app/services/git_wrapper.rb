@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+require "clone_repo"
+
 class GitWrapper
-  def self.clone(repo)
-    clone_repo = CloneRepo.new(repo).tap(&:call)
+  def self.clone(repo_path, private_key)
+    clone_repo = CloneRepo.new(repo_path, private_key).tap(&:call)
     new(Git.open(clone_repo.repo_dir), clone_repo.repo_dir)
   end
 
