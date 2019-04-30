@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_22_112752) do
+ActiveRecord::Schema.define(version: 2019_04_29_135612) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "build_actions", force: :cascade do |t|
     t.bigint "author_id", null: false
@@ -27,12 +30,14 @@ ActiveRecord::Schema.define(version: 2019_04_22_112752) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "private_key"
+    t.string "repo_path", null: false
+    t.jsonb "env_variables", default: {}, null: false
     t.index ["project_id"], name: "index_deployment_configurations_on_project_id"
   end
 
   create_table "project_instances", force: :cascade do |t|
     t.bigint "project_id", null: false
-    t.bigint "deployment_configuration_id", null: false
     t.string "deployment_status", null: false
     t.integer "git_reference", null: false
     t.datetime "created_at", null: false

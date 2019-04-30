@@ -25,8 +25,8 @@ module ServerAccess
       @heroku.app.delete(@name)
     end
 
-    def setup_environment(env)
-      @heroku.config_var.update(name, env)
+    def update_env_variables(env)
+      @heroku.config_var.update(@name, env)
     end
   end
 end
