@@ -40,6 +40,8 @@ class DeploymentConfigurationsController < ApplicationController
   end
 
   def deployment_configuration_params
-    params.require(:deployment_configuration).permit(:name, :repo_path)
+    params.require(:deployment_configuration).permit(:name, :repo_path, :env_variables).tap do |result|
+      result[:env_variables] = Hash[result[:env_variables].split("\n").map { |line| line.split(": ") }]
+    end
   end
 end
