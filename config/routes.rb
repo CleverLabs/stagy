@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   resources :repos, only: %i[create show index] do
     resources :secrets, only: %i[index create]
   end
+
+  resources :projects do
+    resources :project_instances
+    resources :deployment_configurations
+  end
 end

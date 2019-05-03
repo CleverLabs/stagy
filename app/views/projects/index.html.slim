@@ -1,0 +1,10 @@
+h1 Projects list
+div
+  = link_to "Create new", new_project_path
+  - @projects.each do |project|
+    li
+      = project.name
+      | ,&nbsp;
+      = link_to "Instances", project_project_instances_path(project)
+      | ,&nbsp;
+      = link_to "Show", project_path(project)

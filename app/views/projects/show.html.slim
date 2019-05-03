@@ -1,0 +1,7 @@
+h1 Configurations
+h3 = @project.name
+div
+  - @deployment_configurations.each do |deployment_configuration|
+    li = link_to deployment_configuration.name, edit_project_deployment_configuration_path(@project, deployment_configuration)
+
+  = link_to "Create new configuration", new_project_deployment_configuration_path(@project)

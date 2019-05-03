@@ -14,6 +14,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 
 gem "jbuilder", "~> 2.5"
+gem "simple_form"
 gem "slim"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 3.6"

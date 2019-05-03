@@ -1,0 +1,7 @@
+h1 Edit Configuration
+div
+  = simple_form_for @deployment_configuration, url: project_deployment_configuration_path(@project, @deployment_configuration) do |form|
+    = form.input :name
+    = form.input :repo_path
+
+    = form.button :submit
