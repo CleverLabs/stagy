@@ -4,7 +4,7 @@ module Deployment
   module Processes
     class Create
       def initialize(configurations)
-        @configurations = configurations
+        @configurations = configurations.first.is_a?(Hash) ? configurations.map { |configuration| Deployment::Configuration.new(configuration) } : configurations
       end
 
       def call

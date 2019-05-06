@@ -18,7 +18,7 @@ Style/Documentation:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 150
+  Max: 200
 
 Naming/MemoizedInstanceVariableName:
   Enabled: false

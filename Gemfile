@@ -7,27 +7,25 @@ ruby "2.5.1"
 
 gem "dotenv-rails", groups: %i[development test]
 
+gem "bootsnap", ">= 1.1.0", require: false
+gem "git"
+gem "jbuilder", "~> 2.5"
+gem "octokit", "~> 4.0"
+gem "omniauth"
+gem "omniauth-github"
 gem "pg"
+gem "platform-api"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.3"
 gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
-
-gem "jbuilder", "~> 2.5"
+gem "shallow_attributes"
+gem "sidekiq"
 gem "simple_form"
 gem "slim"
-gem "turbolinks", "~> 5"
-gem "webpacker", "~> 3.6"
-
-gem "bootsnap", ">= 1.1.0", require: false
-gem "octokit", "~> 4.0"
-
-gem "git"
-gem "omniauth"
-gem "omniauth-github"
-gem "platform-api"
-gem "shallow_attributes"
 gem "sshkey"
+gem "turbolinks", "~> 5"
+gem "uglifier", ">= 1.3.0"
+gem "webpacker", "~> 3.6"
 
 group :development, :test do
   gem "pry"

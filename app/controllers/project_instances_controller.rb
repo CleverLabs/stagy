@@ -13,9 +13,10 @@ class ProjectInstancesController < ApplicationController
 
   def create
     @project = find_project
-    result = Deployment::Repositories::ProjectInstanceRepository.new(@project).create(params.require(:project_instance).fetch(:name), "master")
+    result = Deployment::Repositories::ProjectInstanceRepository.new(@project).create(project_instance_name, "master")
 
     if result.status == :ok
+      deploy_instance(result.object)
       redirect_to project_project_instance_path(@project, result.object)
     else
       @project_instance = result.object
@@ -32,5 +33,13 @@ class ProjectInstancesController < ApplicationController
 
   def find_project
     Project.find(params[:project_id])
+  end
+
+  def project_instance_name
+    params.require(:project_instance).fetch(:name)
+  end
+
+  def deploy_instance(project_instance)
+    AsyncClassCall.perform_later(Deployment::Processes::Create.to_s, [Deployment::Configuration.build_from_project_instance(project_instance).map(&:to_h)], [])
   end
 end
