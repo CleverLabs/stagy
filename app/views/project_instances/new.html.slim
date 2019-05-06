@@ -1,0 +1,6 @@
+h1 New Project Instance
+div
+  = simple_form_for @project_instance, url: project_project_instances_path do |form|
+    - if @project_instance.errors.any?
+      b = @project_instance.errors.full_messages
+    = form.button :submit
