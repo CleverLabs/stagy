@@ -13,11 +13,12 @@ class ProjectInstancesController < ApplicationController
 
   def create
     @project = find_project
-    @project_instance = @project.project_instances.build(deployment_status: :scheduled, git_reference: "master")
+    result = Deployment::Repositories::ProjectInstanceRepository.new(@project).create(params.require(:project_instance).fetch(:name), "master")
 
-    if @project_instance.save
-      redirect_to project_project_instance_path(@project, @project_instance)
+    if result.status == :ok
+      redirect_to project_project_instance_path(@project, result.object)
     else
+      @project_instance = result.object
       render :new
     end
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module DeploymentProcesses
+module Deployment
   module Helpers
     class PushCodeToServer
       def initialize(configuration)
