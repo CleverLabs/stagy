@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :project_instances
+    resources :project_instances do
+      resource :reload, only: %i[create], module: :project_instances
+    end
     resources :deployment_configurations
   end
 end

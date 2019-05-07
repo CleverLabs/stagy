@@ -29,6 +29,15 @@ class ProjectInstancesController < ApplicationController
     @project_instance = @project.project_instances.find(params[:id])
   end
 
+  def destroy
+    @project = find_project
+    @project_instance = @project.project_instances.find(params[:id])
+
+    Deployment::Repositories::ProjectInstanceRepository.new(@project, @project_instance).update(deployment_status: :destroying_instances)
+    destroy_instance(@project_instance)
+    redirect_to project_project_instances_path(@project)
+  end
+
   private
 
   def find_project
@@ -40,6 +49,10 @@ class ProjectInstancesController < ApplicationController
   end
 
   def deploy_instance(project_instance)
-    AsyncClassCall.perform_later(Deployment::Processes::Create.to_s, [Deployment::Configuration.build_from_project_instance(project_instance).map(&:to_h)], [])
+    ServerActionsCallJob.perform_later(Deployment::ServerActions::Create.to_s, Deployment::Configuration.build_from_project_instance(project_instance).map(&:to_h))
+  end
+
+  def destroy_instance(project_instance)
+    ServerActionsCallJob.perform_later(Deployment::ServerActions::Destroy.to_s, Deployment::Configuration.build_from_project_instance(project_instance).map(&:to_h))
   end
 end

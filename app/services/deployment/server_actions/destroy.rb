@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module Deployment
-  module Processes
-    class Update
+  module ServerActions
+    class Destroy
       def initialize(configurations)
         @configurations = configurations
       end
 
       def call
         @configurations.each do |configuration|
-          DeploymentProcesses::Helpers::PushCodeToServer.new(configuration).call
-          ServerAccess::Heroku.new(name: configuration.application_name).migrate_db
+          server = ServerAccess::Heroku.new(name: configuration.application_name)
+          server.destroy
         end
       end
     end

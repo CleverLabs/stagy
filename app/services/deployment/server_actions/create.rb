@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Deployment
-  module Processes
+  module ServerActions
     class Create
       def initialize(configurations)
-        @configurations = configurations.first.is_a?(Hash) ? configurations.map { |configuration| Deployment::Configuration.new(configuration) } : configurations
+        @configurations = configurations
       end
 
       def call

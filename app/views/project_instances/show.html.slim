@@ -1,1 +1,5 @@
 h1 Project Instance
+p = "Status is: #{@project_instance.deployment_status}"
+= link_to "Terminate instance", project_project_instance_path(@project, @project_instance), method: :delete
+| |
+= link_to "Reload", project_project_instance_reload_path(@project, @project_instance), method: :post

@@ -3,4 +3,4 @@ div
   = link_to "Create new", new_project_project_instance_path(@project)
   - @project_instances.each do |project_instance|
     li
-      = project_instance.name
+      = link_to project_instance.name, project_project_instance_path(@project, project_instance)

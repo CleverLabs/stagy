@@ -6,5 +6,5 @@ class ProjectInstance < ApplicationRecord
 
   validates :deployment_status, :git_reference, :name, presence: true
 
-  enum deployment_status: %i[scheduled running success failure canceled]
+  enum deployment_status: %i[scheduled deploying running_instances failure canceled destroying_instances instances_destroyed]
 end
