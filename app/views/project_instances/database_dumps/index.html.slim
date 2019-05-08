@@ -1,0 +1,13 @@
+h1 Dumps
+div
+  - @dumps_list.each do |dump|
+    li
+      = "#{dump[:uuid]}, created: #{dump[:created_at]}, "
+      = link_to("Download", project_project_instance_database_dump_path(@project, @project_instance, dump[:uuid]))
+ 
+= link_to "Create dump", project_project_instance_database_dumps_path(@project, @project_instance), method: :post
+
+h3 Upload dump
+= simple_form_for :dump, url: project_project_instance_database_dump_path(@project, @project_instance, "no-id"), method: :patch do |form|
+  = form.input :url
+  = form.button :submit

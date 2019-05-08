@@ -93,6 +93,8 @@ GEM
       excon
       moneta
       multi_json (>= 1.9.2)
+    heroku-api-postgres (0.10.0)
+      platform-api
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -310,6 +312,7 @@ DEPENDENCIES
   chromedriver-helper
   dotenv-rails
   git
+  heroku-api-postgres
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   octokit (~> 4.0)
