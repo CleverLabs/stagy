@@ -12,7 +12,7 @@ module Deployment
           create_server(configuration)
           push_code_to_server(configuration)
         rescue Excon::Error::UnprocessableEntity => error
-          JSON.parse(error.response.data[:body])
+          puts JSON.parse(error.response.data[:body])
         end
       end
 

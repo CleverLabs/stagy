@@ -13,10 +13,9 @@ class ProjectInstancesController < ApplicationController
 
   def create
     @project = find_project
-    result = Deployment::Repositories::ProjectInstanceRepository.new(@project).create(project_instance_name, "master")
+    result = Deployment::Processes::CreateProjectInstance.new(@project).call(project_instance_name: project_instance_name)
 
     if result.status == :ok
-      deploy_instance(result.object)
       redirect_to project_project_instance_path(@project, result.object)
     else
       @project_instance = result.object
@@ -46,10 +45,6 @@ class ProjectInstancesController < ApplicationController
 
   def project_instance_name
     params.require(:project_instance).fetch(:name)
-  end
-
-  def deploy_instance(project_instance)
-    ServerActionsCallJob.perform_later(Deployment::ServerActions::Create.to_s, Deployment::Configuration.build_from_project_instance(project_instance).map(&:to_h))
   end
 
   def destroy_instance(project_instance)

@@ -9,8 +9,8 @@ gem "dotenv-rails", groups: %i[development test]
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem "git"
-gem "jbuilder", "~> 2.5"
 gem "heroku-api-postgres"
+gem "jbuilder", "~> 2.5"
 gem "octokit", "~> 4.0"
 gem "omniauth"
 gem "omniauth-github"

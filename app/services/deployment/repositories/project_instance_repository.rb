@@ -10,8 +10,8 @@ module Deployment
         @project_instance = project_instance
       end
 
-      def create(name, git_reference)
-        object = @project.project_instances.create(deployment_status: :scheduled, git_reference: git_reference, name: name)
+      def create(name, git_reference, configurations)
+        object = @project.project_instances.create(deployment_status: :scheduled, git_reference: git_reference, name: name, configurations: configurations)
         Result.new(object, object.errors.any? ? :error : :ok)
       end
 
