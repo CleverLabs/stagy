@@ -1,5 +1,66 @@
-- if authenticated?
-  h1 = "Hello, #{current_user.full_name}!"
-  div = link_to "Log out", sessions_path, method: :delete
-- else
-    = link_to "Log in", "/auth/github"
+.container.home-summary
+  .row.mt-4
+    .col-12.col-md-6
+      .summary-block.table-responsive
+        h5 Last 10 failed builds
+        table.table.table-hover.table-sm.table-clickable.table-small
+          thead
+            tr
+              th.by-content #
+              th Name
+              th Project
+              th Updated
+              th.by-content Status
+          tbody
+            - @failed_builds.each_with_index do |build, index|
+              tr
+                td.text-center
+                  = link_to project_project_instance_path(build.project, build) do
+                    = index + 1
+                td
+                  = link_to project_project_instance_path(build.project, build) do
+                    = build.name
+                td
+                  = link_to project_project_instances_path(build.project) do
+                    = build.project.name
+                td
+                  = link_to project_project_instance_path(build.project, build) do
+                    = build.updated_at.strftime("%H:%M %d/%m")
+                td.text-center
+                  = link_to project_project_instance_path(build.project, build) do
+                    = image_pack_tag "media/images/failure-1.svg"
+    .col-12.col-md-6.mt-4.mt-md-0
+      .summary-block.table-responsive
+        h5 Last 10 updated builds
+        table.table.table-hover.table-sm.table-clickable.table-small
+          thead
+            tr
+              th.by-content #
+              th Name
+              th Project
+              th Updated
+              th.by-content Status
+          tbody
+            - @updated_builds.each_with_index do |build, index|
+              tr
+                td.text-center
+                  = link_to project_project_instance_path(build.project, build) do
+                    = index + 1
+                td
+                  = link_to project_project_instance_path(build.project, build) do
+                    = build.name
+                td
+                  = link_to project_project_instances_path(build.project) do
+                    = build.project.name
+                td
+                  = link_to project_project_instance_path(build.project, build) do
+                    = build.updated_at.strftime("%H:%M %d/%m")
+                td.text-center
+                  = link_to project_project_instance_path(build.project, build) do
+                    = Constants::ProjectInstance::DEPLOYMENT_STATUSES_HUMANISED.fetch(build.deployment_status.to_sym)
+  .row.mt-4
+    .col-12.col-md-6
+      .summary-block
+        h5 Statuses
+        canvas#homeChart
+

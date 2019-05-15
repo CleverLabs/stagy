@@ -1,0 +1,10 @@
+body {
+  font-family: 'Titillium Web', sans-serif;
+
+  .body-wrapper {
+    $footer-height: 40px;
+    padding-bottom: 2rem;
+    min-height: calc(100vh - #{$footer-height} - 2rem);
+  }
+}
+

@@ -1,0 +1,8 @@
+.container
+  .login-wrapper.d-flex.justify-content-center
+    .login-block.d-flex.justify-content-center.align-items-center
+      h2.logo
+        = image_pack_tag 'media/images/logos/earth-colored.svg'
+        | DeployQA
+
+      = link_to "Log in", "/auth/github", class: "btn"

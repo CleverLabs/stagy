@@ -1,10 +1,28 @@
-h1 Projects list
-div
-  = link_to "Create new", new_project_path
-  - @projects.each do |project|
-    li
-      = project.name
-      | ,&nbsp;
-      = link_to "Instances", project_project_instances_path(project)
-      | ,&nbsp;
-      = link_to "Show", project_path(project)
+.container
+  .d-flex.justify-content-between.mt-4
+    h1 Projects
+    .d-flex.align-items-center
+      = link_to "Create", new_project_path, class: "btn btn-primary"
+  .mt-4
+    table.table.table-hover.table-clickable
+      thead
+        tr
+          th.by-content #
+          th Name
+          th.by-content Builds
+          th.by-content Configure
+      tbody
+        - @projects.each_with_index do |project, index|
+          tr
+            td.text-center
+              = link_to project_project_instances_path(project) do
+                = index + 1
+            td
+              = link_to project_project_instances_path(project) do
+                = project.name
+            td.text-center
+              = link_to project_project_instances_path(project) do
+                = project.builds
+            td.text-center
+              = link_to project_path(project) do
+                = image_pack_tag 'media/images/configure.svg', class: "configure-icon"

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "home#index"
   get "/auth/:provider/callback", to: "sessions#create"
   resources :home, only: %i[index]
-  resource :sessions, only: %i[create destroy]
+  resource :sessions, only: %i[show create destroy]
   resources :repos, only: %i[create show index] do
     resources :secrets, only: %i[index create]
   end
@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     end
     resources :deployment_configurations
   end
+
+  resources :project_instances_counts, only: %i[index]
 end

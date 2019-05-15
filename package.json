@@ -3,9 +3,12 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "4.0.2",
+    "@types/chart.js": "^2.7.52",
     "@types/node": "^10.12.10",
+    "@types/webpack-env": "^1.13.9",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "chart.js": "^2.8.0",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "rails-ujs": "^5.2.1",

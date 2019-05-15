@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+}
+
+.table.table-clickable {
+  thead th {
+    &.by-content {
+      white-space: nowrap;
+      width: 10px;
+    }
+  }
+
+  tbody {
+    td {
+      padding: 0;
+
+      .configure-icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    a {
+      padding: 0.75rem;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &.table-small {
+    a {
+      padding: 0;
+    }
+  }
+}

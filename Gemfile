@@ -26,7 +26,7 @@ gem "slim"
 gem "sshkey"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem 'webpacker', '~> 4.0', '>= 4.0.2'
+gem "webpacker", "~> 4.0", ">= 4.0.2"
 
 group :development, :test do
   gem "pry"
