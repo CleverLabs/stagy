@@ -1,3 +1,4 @@
+import 'bootstrap';
 import * as Rails from 'rails-ujs'
 import ReposPage from './repos'
 
