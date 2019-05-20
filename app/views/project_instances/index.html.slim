@@ -1,6 +1,22 @@
-h1 Project instances
-div
-  = link_to "Create new", new_project_project_instance_path(@project)
-  - @project_instances.each do |project_instance|
-    li
-      = link_to project_instance.name, project_project_instance_path(@project, project_instance)
+.container
+  h1.mt-4 = @project.name
+  .d-flex.justify-content-between
+    h3 Builds
+    .d-flex.align-items-center.mt-2
+      = link_to "Create", new_project_project_instance_path(@project), class: "btn btn-primary"
+
+  .mt-4
+    table.table.table-hover.table-clickable
+      thead
+        tr
+          th.by-content #
+          th Name
+      tbody
+        - @project_instances.each_with_index do |project_instance, index|
+          tr
+            td.text-center
+              = link_to project_project_instance_path(@project, project_instance) do
+                = index + 1
+            td
+              = link_to project_project_instance_path(@project, project_instance) do
+                = project_instance.name

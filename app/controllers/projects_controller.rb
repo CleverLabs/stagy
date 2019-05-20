@@ -3,6 +3,9 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+                       .joins("LEFT JOIN project_instances ON project_instances.project_id = projects.id")
+                       .group("projects.id").select("projects.*, COUNT(project_instances) as builds")
+                       .order("projects.created_at DESC")
   end
 
   def new

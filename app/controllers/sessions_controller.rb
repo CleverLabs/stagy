@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
+  layout "sessions"
+  skip_before_action :login_if_not, only: %i[show create]
+
+  def show; end
+
   def create
     request.session[:user_id] = github_user.id
     redirect_to "/"

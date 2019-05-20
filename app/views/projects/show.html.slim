@@ -1,7 +1,21 @@
-h1 Configurations
-h3 = @project.name
-div
-  - @deployment_configurations.each do |deployment_configuration|
-    li = link_to deployment_configuration.name, edit_project_deployment_configuration_path(@project, deployment_configuration)
-
-  = link_to "Create new configuration", new_project_deployment_configuration_path(@project)
+.container
+  h1.mt-4 = @project.name
+  .d-flex.justify-content-between
+    h3 Configurations
+    .d-flex.align-items-center
+      = link_to "Create", new_project_deployment_configuration_path(@project), class: "btn btn-primary"
+  .mt-4
+    table.table.table-hover.table-clickable
+      thead
+        tr
+          th.by-content #
+          th Name
+      tbody
+        - @deployment_configurations.each_with_index do |deployment_configuration, index|
+          tr
+            td.text-center
+              = link_to edit_project_deployment_configuration_path(@project, deployment_configuration) do
+                = index + 1
+            td
+              = link_to edit_project_deployment_configuration_path(@project, deployment_configuration) do
+                = deployment_configuration.name

@@ -1,7 +1,8 @@
-h1 New Project Instance
-div
-  = simple_form_for @project_instance, url: project_project_instances_path do |form|
-    - if @project_instance.errors.any?
-      b = @project_instance.errors.full_messages
-    = form.input :name
-    = form.button :submit
+.container
+  h1.mt-4 New build
+  .mt-4
+    = simple_form_for @project_instance, url: project_project_instances_path do |form|
+      - if @project_instance.errors.any?
+        b = @project_instance.errors.full_messages
+      = form.input :name
+      = form.button :submit, class: "btn btn-primary"

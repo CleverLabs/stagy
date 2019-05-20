@@ -1,7 +1,13 @@
-h1 Project Instance
-p = "Status is: #{@project_instance.deployment_status}"
-= link_to "Terminate instance", project_project_instance_path(@project, @project_instance), method: :delete
-| |
-= link_to "Reload", project_project_instance_reload_path(@project, @project_instance), method: :post
-| |
-= link_to "Dumps", project_project_instance_database_dumps_path(@project, @project_instance)
+.container
+  h1.mt-4 = @project_instance.project.name
+  h3 = @project_instance.name
+  .mt-4
+    div class=["alert", status_alert_class(@project_instance.deployment_status)] role="alert"
+      = "Status is: "
+      = Constants::ProjectInstance::DEPLOYMENT_STATUSES_HUMANISED.fetch(@project_instance.deployment_status.to_sym)
+
+    .d-flex.justify-content-between
+      div
+        = link_to "Dumps", project_project_instance_database_dumps_path(@project, @project_instance), class: "btn btn-secondary"
+        = link_to "Reload", project_project_instance_reload_path(@project, @project_instance), method: :post, class: "btn btn-info ml-2"
+      = link_to "Terminate instance", project_project_instance_path(@project, @project_instance), method: :delete, class: "btn btn-danger"

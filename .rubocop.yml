@@ -36,3 +36,6 @@ RSpec/MultipleExpectations:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
+
+Layout/AlignHash:
+  Enabled: false

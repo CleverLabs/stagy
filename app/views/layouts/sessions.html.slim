@@ -17,8 +17,4 @@ html
     = javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 
   body
-    .body-wrapper
-      = render partial: "layouts/header"
-      = yield
-
-    = render partial: "layouts/footer"
+    = yield

@@ -1,4 +1,7 @@
+import 'bootstrap';
 import * as Rails from 'rails-ujs'
+
+import HomeChart from './homeChart'
 import ReposPage from './repos'
 
 Rails.start()
@@ -10,6 +13,8 @@ window.onload = () => {
   // if (document.getElementById('repos-page')) {
   //   const _repos = new ReposPage()
   // }
+  const chart = new HomeChart('homeChart')
 }
 
-require('./stylesheets/application.scss')
+require.context('../images', true)
+require('../stylesheets/application.scss')

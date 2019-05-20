@@ -1,0 +1,18 @@
+nav {
+  .navbar-brand {
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  a.dropdown-toggle {
+    color: $white;
+  }
+
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+
+}
