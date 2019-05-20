@@ -1,4 +1,13 @@
 .container
+  = render partial: "shared/breadcrumb", locals: {\
+      text_link_hash: {\
+        "Dashboard" => root_path,
+        "Projects" => projects_path,
+        "Builds" => project_project_instances_path(@project),
+        "Create" => nil\
+      },
+      class: "mt-4" }
+
   h1.mt-4 New build
   .mt-4
     = simple_form_for @project_instance, url: project_project_instances_path do |form|

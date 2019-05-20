@@ -1,5 +1,13 @@
 .container
   h1.mt-4 New project
+  = render partial: "shared/breadcrumb", locals: {\
+      text_link_hash: {\
+        "Dashboard" => root_path,
+        "Projects" => projects_path,
+        "Create" => nil\
+      },
+      class: "mt-4" }
+
   .mt-4
     = simple_form_for @project do |form|
       - if @project.errors.any?
