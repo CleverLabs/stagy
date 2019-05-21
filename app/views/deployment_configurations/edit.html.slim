@@ -1,4 +1,13 @@
 .container
+  = render partial: "shared/breadcrumb", locals: {\
+      text_link_hash: {\
+        "Dashboard" => root_path,
+        "Projects" => projects_path,
+        "Configurations" => project_path(@project),
+        "Edit" => nil\
+      },
+      class: "mt-4" }
+
   h1.mt-4 Edit Configuration
   .mt-4
     = simple_form_for @deployment_configuration, url: project_deployment_configuration_path(@project, @deployment_configuration) do |form|

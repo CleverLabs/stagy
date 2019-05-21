@@ -1,4 +1,11 @@
 .container
+  = render partial: "shared/breadcrumb", locals: {\
+      text_link_hash: {\
+        "Dashboard" => root_path,
+        "Projects" => nil\
+      },
+      class: "mt-4" }
+
   .d-flex.justify-content-between.mt-4
     h1 Projects
     .d-flex.align-items-center

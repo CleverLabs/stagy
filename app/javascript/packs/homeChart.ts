@@ -45,7 +45,9 @@ export default class HomeChart {
   constructor (selector: string) {
     const element = document.getElementById(selector)
     this.chartSelector = element as HTMLCanvasElement
-    this.loadData()
+    if (this.chartSelector) {
+      this.loadData()
+    }
   }
 
   private loadData (): void {

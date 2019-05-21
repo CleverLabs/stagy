@@ -1,0 +1,11 @@
+- css_class = local_assigns[:class]
+
+- if text_link_hash.present?
+  .breadcrumb class=css_class
+    - last_text = text_link_hash.keys.last
+    - text_link_hash.except(last_text).each do |text, link|
+      - if link.present?
+        = link_to text, link, class: "path-item"
+      - else
+        span.path-item = text
+    span.path-item.active = last_text
