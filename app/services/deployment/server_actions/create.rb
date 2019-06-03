@@ -27,6 +27,7 @@ module Deployment
 
         logger.info("Creating a server", context: app_name) && create_server(configuration)
         logger.info("Pushing the code to the server", context: app_name) && push_code_to_server(configuration)
+        logger.info("Creating infrastructure", context: app_name) && creating_infrastructure(configuration)
       end
 
       def create_server(configuration)
@@ -34,8 +35,13 @@ module Deployment
         server.create
         server.build_addons
         server.update_env_variables(configuration.env_variables)
+      end
+
+      def creating_infrastructure(configuration)
+        server = ServerAccess::Heroku.new(name: configuration.application_name)
         server.setup_db
         server.setup_worker
+        server.restart
       end
 
       def push_code_to_server(configuration)

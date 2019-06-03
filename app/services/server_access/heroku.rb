@@ -11,11 +11,12 @@ module ServerAccess
     end
 
     def create
-      @heroku.app.create(name: @name)
+      @heroku.organization_app.create(name: @name, organization: "deployqa")
     end
 
     def build_addons
       @heroku.addon.create(@name, plan: "heroku-postgresql:hobby-dev")
+      @heroku.addon.create(@name, plan: "heroku-redis:hobby-dev")
     end
 
     def restart
