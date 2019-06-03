@@ -22,7 +22,7 @@ module Deployment
           repo_path: deployment_configuration.repo_path,
           private_key: deployment_configuration.private_key,
           env_variables: deployment_configuration.env_variables,
-          git_reference: branches.fetch(deployment_configuration.name, "github-webhooks"),
+          git_reference: branches.fetch(deployment_configuration.name, "master"),
           deployment_configuration_id: deployment_configuration.id
         )
       end
