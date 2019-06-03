@@ -5,6 +5,7 @@ module Constants
     DEPLOYMENT_STATUSES = [
       SCHEDULED = :scheduled,
       DEPLOYING = :deploying,
+      UPDATING = :updating,
       RUNNING_INSTANCES = :running_instances,
       FAILURE = :failure,
       CANCELED = :canceled,
@@ -15,6 +16,7 @@ module Constants
     DEPLOYMENT_STATUSES_HUMANISED = {
       SCHEDULED => "scheduled",
       DEPLOYING => "deploying",
+      UPDATING => "updating",
       RUNNING_INSTANCES => "running",
       FAILURE => "failed",
       CANCELED => "canceled",

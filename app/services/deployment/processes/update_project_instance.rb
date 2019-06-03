@@ -12,7 +12,7 @@ module Deployment
         configurations = Deployment::ConfigurationBuilder.new.by_project_instance(@project_instance).map(&:to_h)
         build_action = BuildAction.create!(project_instance: @project_instance, author: @current_user, action: Constants::BuildAction::UPDATE_INSTANCE)
         logger = ::BuildActionLogger.new(build_action).serialize
-        ServerActionsCallJob.perform_later(Deployment::ServerActions::Update.to_s, configurations, logger)
+        ServerActionsCallJob.perform_later(Deployment::ServerActions::Update.to_s, configurations, logger, @project_instance, Constants::ProjectInstance::UPDATING.to_s)
       end
     end
   end
