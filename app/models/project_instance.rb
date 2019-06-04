@@ -6,5 +6,5 @@ class ProjectInstance < ApplicationRecord
 
   validates :deployment_status, :name, presence: true
 
-  enum deployment_status: Constants::ProjectInstance::DEPLOYMENT_STATUSES
+  enum deployment_status: ProjectInstance::DEPLOYMENT_STATUSES
 end

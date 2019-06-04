@@ -14,7 +14,7 @@ class ServerActionsCallJob < ApplicationJob
   private
 
   def update_project_instance(instance, status)
-    instance.configurations.each { |conf| conf["application_url"] = heroku_app_url(conf["application_name"]) } if status != Constants::ProjectInstance::FAILURE
+    instance.configurations.each { |conf| conf["application_url"] = heroku_app_url(conf["application_name"]) } if status != ProjectInstance::FAILURE
 
     instance.deployment_status = status
     instance.save!

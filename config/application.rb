@@ -19,6 +19,7 @@ module Deployka
     # the framework and any gems in your application.
 
     config.autoload_paths += %W[
+      #{config.root}/app/constants
       #{config.root}/lib
     ]
 

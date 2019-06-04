@@ -5,5 +5,5 @@ class BuildActionLog < ApplicationRecord
 
   validates :message, :status, presence: true
 
-  enum status: Constants::BuildAction::Log::STATUSES
+  enum status: BuildAction::Log::STATUSES
 end

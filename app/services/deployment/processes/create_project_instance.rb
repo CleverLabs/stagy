@@ -22,9 +22,9 @@ module Deployment
       attr_reader :current_user
 
       def deploy_instance(instance, configurations)
-        build_action = BuildAction.create!(project_instance: instance, author: current_user, action: Constants::BuildAction::CREATE_INSTANCE)
+        build_action = BuildAction.create!(project_instance: instance, author: current_user, action: BuildAction::CREATE_INSTANCE)
         logger = ::BuildActionLogger.new(build_action)
-        ServerActionsCallJob.perform_later(Deployment::ServerActions::Create.to_s, configurations.map(&:to_h), logger.serialize, instance, Constants::ProjectInstance::DEPLOYING.to_s)
+        ServerActionsCallJob.perform_later(Deployment::ServerActions::Create.to_s, configurations.map(&:to_h), logger.serialize, instance, ProjectInstance::DEPLOYING.to_s)
       end
 
       def configurations_for_project_instance(configurations)
