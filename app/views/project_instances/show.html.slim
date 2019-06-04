@@ -18,7 +18,7 @@
 
     div class=["mt-4 alert", status_alert_class(@project_instance.deployment_status)] role="alert"
       = "Status is: "
-      = ProjectInstance::DEPLOYMENT_STATUSES_HUMANISED.fetch(@project_instance.deployment_status.to_sym)
+      = ProjectInstanceConstants::DEPLOYMENT_STATUSES_HUMANISED.fetch(@project_instance.deployment_status.to_sym)
 
     .d-flex.justify-content-between
       div

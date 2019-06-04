@@ -10,11 +10,11 @@ class BuildActionLogger
   end
 
   def info(message, context:)
-    create_log(message, status: BuildAction::Log::INFO, context: context)
+    create_log(message, status: BuildActionConstants::Log::INFO, context: context)
   end
 
   def error(message, context:)
-    create_log(message, status: BuildAction::Log::ERROR, context: context)
+    create_log(message, status: BuildActionConstants::Log::ERROR, context: context)
   end
 
   def serialize

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ProjectInstance
+module ProjectInstanceConstants
   DEPLOYMENT_STATUSES = [
     SCHEDULED = :scheduled,
     DEPLOYING = :deploying,

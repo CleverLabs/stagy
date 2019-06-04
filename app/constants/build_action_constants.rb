@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module BuildAction
+module BuildActionConstants
   ACTIONS = [
     CREATE_INSTANCE = :create_instance,
     UPDATE_INSTANCE = :update_instance,

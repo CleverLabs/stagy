@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def index
-    @failed_builds = ProjectInstance.where(deployment_status: ProjectInstance::FAILURE).order(updated_at: :desc).limit(10).includes(:project)
+    @failed_builds = ProjectInstance.where(deployment_status: ProjectInstanceConstants::FAILURE).order(updated_at: :desc).limit(10).includes(:project)
     @updated_builds = ProjectInstance.order(updated_at: :desc).limit(10).includes(:project)
   end
 end

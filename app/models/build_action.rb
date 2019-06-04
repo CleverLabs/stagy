@@ -7,5 +7,5 @@ class BuildAction < ApplicationRecord
 
   validates :action, presence: true
 
-  enum action: BuildAction::ACTIONS
+  enum action: BuildActionConstants::ACTIONS
 end
