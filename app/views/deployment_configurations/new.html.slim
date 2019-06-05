@@ -11,8 +11,7 @@
   h1.mt-4 New Configuration
   .mt-4
     = simple_form_for @deployment_configuration, url: project_deployment_configurations_path(@project) do |form|
-      = form.input :name
-      = form.input :repo_path
-      = form.input :env_variables, input_html: {value: @deployment_configuration.env_variables.map {|key, value| "#{key}: #{value}"}.join("\n")}
+      = form.input :repo_path, input_html: { placeholder: "rails/rails" }
+      = form.input :env_variables, input_html: { value: @deployment_configuration.env_variables.map {|key, value| "#{key}: #{value}"}.join("\n"), placeholder: "KEY: value\nANOTHER_KEY: value" }
 
       = form.button :submit, class: "btn btn-primary"
