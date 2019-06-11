@@ -3,16 +3,18 @@
 class DeployKeysWorkflow
   COMMENT = "Deployka key"
 
-  def initialize(repo)
-    @repo = repo
+  def initialize(deployment_configuration, user)
+    @deployment_configuration = deployment_configuration
+    @user = user
   end
 
   def call
-    @repo.update!(ssh_keys)
+    @deployment_configuration.update!(ssh_keys)
     client.add_deploy_key(
-      @repo.path,
+      @deployment_configuration.repo_path,
       COMMENT,
-      ssh_keys.fetch(:public_key)
+      ssh_keys.fetch(:public_key),
+      read_only: true
     )
   end
 
@@ -23,6 +25,6 @@ class DeployKeysWorkflow
   end
 
   def client
-    @_client ||= Octokit::Client.new(access_token: @repo.user.token)
+    @_client ||= Octokit::Client.new(access_token: @user.token)
   end
 end

@@ -18,6 +18,7 @@
         tr
           th.by-content #
           th Name
+          th
       tbody
         - @deployment_configurations.each_with_index do |deployment_configuration, index|
           tr
@@ -27,3 +28,5 @@
             td
               = link_to edit_project_deployment_configuration_path(@project, deployment_configuration) do
                 = deployment_configuration.name
+            td
+              = link_to "Delete", project_deployment_configuration_path(@project, deployment_configuration), method: :delete, data: { confirm: "Are you sure want to delete configuration?" }

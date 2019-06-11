@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_091055) do
+ActiveRecord::Schema.define(version: 2019_06_10_160857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_091055) do
     t.string "private_key"
     t.string "repo_path", null: false
     t.jsonb "env_variables", default: {}, null: false
+    t.string "public_key"
     t.index ["project_id"], name: "index_deployment_configurations_on_project_id"
   end
 

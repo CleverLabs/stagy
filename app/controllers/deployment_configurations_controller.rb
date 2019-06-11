@@ -11,6 +11,7 @@ class DeploymentConfigurationsController < ApplicationController
     @deployment_configuration = @project.deployment_configurations.build(deployment_configuration_params)
 
     if @deployment_configuration.save
+      DeployKeysWorkflow.new(@deployment_configuration, current_user).call
       redirect_to project_path(@project)
     else
       render :new
@@ -31,6 +32,14 @@ class DeploymentConfigurationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @project = find_project
+    @deployment_configuration = @project.deployment_configurations.find(params[:id])
+
+    @deployment_configuration.destroy!
+    redirect_to project_path(@project)
   end
 
   private

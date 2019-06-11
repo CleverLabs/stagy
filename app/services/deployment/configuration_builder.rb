@@ -47,7 +47,7 @@ module Deployment
     end
 
     def build_name(project_name, deployment_configuration_name, instance_name)
-      "#{project_name}-#{deployment_configuration_name}-#{instance_name}".tr(" ", "-").downcase
+      "#{project_name}-#{deployment_configuration_name}-#{instance_name}".tr(" ", "-").tr("_", "-").downcase
     end
 
     def heroku_url(application_name)
