@@ -10,7 +10,7 @@ module Deployment
 
       def call(project_instance_name:, branches:)
         configurations = Deployment::ConfigurationBuilder.new.by_project(@project, project_instance_name, branches: branches)
-        creation_result = Deployment::Repositories::ProjectInstanceRepository.new(@project).create(name: project_instance_name, configurations: configurations.map(&:to_project_instance_configuration))
+        creation_result = create_project_instance(project_instance_name, configurations)
         return creation_result unless creation_result.ok?
 
         deploy_instance(creation_result.object, configurations)
@@ -20,6 +20,14 @@ module Deployment
       private
 
       attr_reader :current_user
+
+      def create_project_instance(project_instance_name, configurations)
+        Deployment::Repositories::ProjectInstanceRepository.new(@project).create(
+          name: project_instance_name,
+          configurations: configurations.map(&:to_project_instance_configuration),
+          deployment_status: ProjectInstanceConstants::SCHEDULED
+        )
+      end
 
       def deploy_instance(instance, configurations)
         build_action = BuildAction.create!(project_instance: instance, author: current_user, action: BuildActionConstants::CREATE_INSTANCE)

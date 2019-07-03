@@ -25,6 +25,7 @@ class ProjectInstancesController < ApplicationController
     if result.ok?
       redirect_to project_project_instance_path(@project, result.object)
     else
+      @deployment_configurations = @project.deployment_configurations.active
       @project_instance = result.object
       render :new
     end
