@@ -13,16 +13,16 @@
     table.table.table-hover.table-clickable
       thead
         tr
-          th.by-content #
+          th.by-content
           th Name
           th.by-content Active Builds
           th.by-content Configure
       tbody
-        - @projects.each_with_index do |project, index|
+        - @projects.each do |project|
           tr
             td.text-center
               = link_to project_project_instances_path(project) do
-                = index + 1
+                = project_integration_logo(project)
             td
               = link_to project_project_instances_path(project) do
                 = project.name

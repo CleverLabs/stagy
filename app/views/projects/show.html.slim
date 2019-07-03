@@ -7,8 +7,9 @@
       class: "mt-4" }
 
   h1.mt-4
-    = link_to_project_orgatnization(@project)
     = @project.name
+    = " "
+    = link_to_project_orgatnization(@project)
   - if @project.slack_entity.blank?
     .mt-4.mb-4
       = link_to omniauth_path("slack", project_id: @project.id) do
