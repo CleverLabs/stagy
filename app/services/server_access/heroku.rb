@@ -50,7 +50,10 @@ module ServerAccess
     def execute_command(command, env)
       dyno_id = @heroku.dyno.create(@name, command: command, env: env).fetch("id")
 
-      sleep(COMMAND_CHECK_DELAY) while @heroku.dyno.list(@name).find { |dyno| dyno.fetch("id") == dyno_id }
+      sleep(COMMAND_CHECK_DELAY) while @heroku.dyno.list(@name).find do |dyno|
+        puts " -- Waiting, id is: #{dyno.fetch('id')}, desirable is: #{dyno_id}"
+        dyno.fetch("id") == dyno_id
+      end
     end
 
     def safely(&block)
