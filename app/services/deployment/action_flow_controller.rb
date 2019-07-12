@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "action_state_machine"
+
 module Deployment
   class ActionFlowController
     delegate :states, :context=, :last_state, to: :@state_machine

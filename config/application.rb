@@ -23,6 +23,10 @@ module Deployka
       #{config.root}/lib
     ]
 
+    config.eager_load_paths += %W[
+      #{config.root}/lib/errors
+    ]
+
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}").to_s]
 
     config.active_job.queue_adapter = :sidekiq
