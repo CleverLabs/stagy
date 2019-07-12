@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "github_app_client"
+
 module Github
   class PullRequest
     def initialize(installation_id, repo_path, pull_request_number)

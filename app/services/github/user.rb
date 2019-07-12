@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "github_user_client"
+
 module Github
   class User
     TOKEN_PATH = %w[credentials token].freeze

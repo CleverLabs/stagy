@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "github_app_client"
+
 module Deployment
   module Helpers
     class PushCodeToServer
