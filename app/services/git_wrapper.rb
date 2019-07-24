@@ -32,7 +32,7 @@ class GitWrapper
   end
 
   def add_remote_heroku(heroku_app_name)
-    @git_client.add_remote("heroku", "https://heroku:#{ENV["HEROKU_API_KEY"]}@git.heroku.com/#{heroku_app_name}.git")
+    @git_client.add_remote("heroku", "https://heroku:#{ENV['HEROKU_API_KEY']}@git.heroku.com/#{heroku_app_name}.git")
     ReturnValue.ok
   end
 
