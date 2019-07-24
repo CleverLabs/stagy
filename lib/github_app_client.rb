@@ -32,7 +32,8 @@ class GithubAppClient
   end
 
   def jwt_auth_token
-    private_key = OpenSSL::PKey::RSA.new(ENV["GITHUB_APP_KEY"])
+    # Since ECS env keys cannot store '\n's, there is a little hack - instead of real newline we store two symbols - '\' and 'n', and then replace them with actual '\n'
+    private_key = OpenSSL::PKey::RSA.new(ENV["GITHUB_APP_KEY"].gsub('\n', "\n"))
 
     payload = {
       iat: (@token_end_time - TOKEN_TIME_TO_LIVE).to_i,
