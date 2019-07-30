@@ -9,7 +9,7 @@ module Deployment
       end
 
       def call
-        return if project_instance.deployment_status.in?([ProjectInstanceConstants::DESTROYED, ProjectInstanceConstants::CLOSED])
+        return if @project_instance.deployment_status.in?([ProjectInstanceConstants::DESTROYED, ProjectInstanceConstants::CLOSED])
         return update_status if @project_instance.deployment_status.in?(ProjectInstanceConstants::NOT_DEPLOYED_INSTANCES)
 
         configurations = Deployment::ConfigurationBuilder.new.by_project_instance(@project_instance).map(&:to_h)
