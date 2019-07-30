@@ -2,15 +2,8 @@
 
 class ProjectsController < ApplicationController
   def index
-    statuses = ProjectInstanceConstants::ACTIVE_INSTANCES.map { |status| ProjectInstance.deployment_statuses[status] }.join(", ")
-    @projects = Project.all
-                       .select("projects.*, COUNT(project_instances) as builds")
-                       .joins("LEFT JOIN project_instances ON project_instances.project_id = projects.id AND project_instances.deployment_status in (#{statuses})")
-                       .joins(:project_user_roles)
-                       .where(project_user_roles: { user_id: current_user.id })
-                       .group("projects.id")
-                       .order("projects.created_at DESC")
-                       .includes(:deployment_configurations)
+    @projects = find_projects
+    @installing_project = Project.new(integration_type: ProjectsConstants::Providers::GITHUB) if project_installing?
   end
 
   def new
@@ -39,6 +32,25 @@ class ProjectsController < ApplicationController
 
   def find_project
     authorize Project.find(params[:id]), :edit?, policy_class: ProjectPolicy
+  end
+
+  def find_projects
+    statuses = ProjectInstanceConstants::ACTIVE_INSTANCES.map { |status| ProjectInstance.deployment_statuses[status] }.join(", ")
+
+    Project
+      .select("projects.*, COUNT(project_instances) as builds")
+      .joins("LEFT JOIN project_instances ON project_instances.project_id = projects.id AND project_instances.deployment_status in (#{statuses})")
+      .joins(:project_user_roles)
+      .where(project_user_roles: { user_id: current_user.id })
+      .group("projects.id")
+      .order("projects.created_at DESC")
+      .includes(:deployment_configurations)
+  end
+
+  def project_installing?
+    return false unless params[:installation_id]
+
+    !Project.find_by(integration_type: ProjectsConstants::Providers::GITHUB, integration_id: params[:installation_id])
   end
 
   def project_params

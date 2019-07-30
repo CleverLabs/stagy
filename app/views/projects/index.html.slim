@@ -18,6 +18,13 @@
           th.by-content Active Builds
           th.by-content Configure
       tbody
+        - if @installing_project
+          tr.table-warning
+            td.text-center
+              a = project_integration_logo(@installing_project)
+            td: a The project is being installed...
+            td.text-center: a 0
+            td.text-center
         - @projects.each do |project|
           tr
             td.text-center
