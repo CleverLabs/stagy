@@ -19,6 +19,8 @@ class DeploymentConfigurationForm
   end
 
   def web_processes_attributes=(params)
+    return if params.blank?
+
     @web_processes_attributes = mark_empty_processes_to_destroy(params.values)
                                 .select { |attributes| attributes[:command].present? || attributes[:_destroy] }
 
