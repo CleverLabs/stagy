@@ -4,7 +4,7 @@ module ServerAccess
   class HerokuDatabase
     def initialize(name:)
       @heroku = PlatformAPI.connect_oauth(ENV["HEROKU_API_KEY"])
-      @heroku_for_db = Heroku::Api::Postgres.connect_oauth(ENV["HEROKU_API_KEY"])
+      @heroku_for_db = ::Heroku::Api::Postgres.connect_oauth(ENV["HEROKU_API_KEY"])
       @database_id = find_database_id
       @name = name
     end
