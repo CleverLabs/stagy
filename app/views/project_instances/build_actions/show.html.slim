@@ -13,6 +13,7 @@
     h3 Logs
     .log-section
       - @build_action_logs.each do |log|
-        .log-item class="#{'text-danger' if log.status == BuildActionConstants::Log::ERROR}"
-          = "[#{log.context}] #{log.message}"
+        .log-item
+          code.small.text-info = "[#{log.context}] "
+          code.small class="#{(log.status == BuildActionConstants::Log::ERROR) ? 'text-danger' : 'text-secondary'}" = log.message
 
