@@ -31,11 +31,11 @@ module Notifications
     end
 
     def deployed
-      "Application url: #{@project_instance.configurations.first.application_url}"
+      "Application '#{@project_instance.name}' deployed!\nApplication url: #{@project_instance.configurations.first.application_url}"
     end
 
     def failed
-      "Deployment failed. <#{project_instance_url}|Project instance>"
+      "Deployment of '#{@project_instance.name}' failed. <#{project_instance_url}|Project instance>"
     end
 
     private
