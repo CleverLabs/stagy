@@ -14,7 +14,7 @@ module Notifications
     end
 
     def failure_header
-      "Unexpected error in deployka"
+      "Unexpected error in deployqa"
     end
 
     def header

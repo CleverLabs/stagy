@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DeployKeysWorkflow
-  COMMENT = "Deployka key"
+  COMMENT = "Deployqa key"
 
   def initialize(deployment_configuration, user)
     @deployment_configuration = deployment_configuration
