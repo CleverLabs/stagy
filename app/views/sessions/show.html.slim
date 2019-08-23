@@ -1,9 +1,7 @@
 .container
   .login-wrapper.d-flex.justify-content-center
     .login-block.d-flex.justify-content-center.align-items-center
-      h2.logo
-        = image_pack_tag 'media/images/logos/earth-colored.svg'
-        | DeployQA
+      h2.logo = image_pack_tag 'media/images/logos/deployqa-with-word.svg'
 
       = link_to "Log in with GitHub", omniauth_path("github"), method: :post, class: "btn"
       = link_to "Log in with GitLab", omniauth_path("gitlab"), method: :post, class: "btn mt-2"
