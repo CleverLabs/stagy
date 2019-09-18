@@ -19,7 +19,9 @@ module ProjectInstanceConstants
     Deployment::ServerActions::Recreate.to_s => { running: DEPLOYING, success: RUNNING, failure: NOT_DEPLOYED },
     Deployment::ServerActions::Update.to_s => { running: UPDATING, success: RUNNING, failure: FAILURE },
     Deployment::ServerActions::Restart.to_s => { running: UPDATING, success: RUNNING, failure: RUNNING },
-    Deployment::ServerActions::Destroy.to_s => { running: DESTROYING, success: DESTROYED, failure: FAILURE }
+    Deployment::ServerActions::Destroy.to_s => { running: DESTROYING, success: DESTROYED, failure: FAILURE },
+
+    Deployment::KubeActions::Create.to_s => { running: DEPLOYING, success: RUNNING, failure: NOT_DEPLOYED }
   }.freeze
 
   ACTIVE_INSTANCES = [RUNNING, FAILURE, DEPLOYING, UPDATING].freeze

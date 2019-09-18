@@ -11,7 +11,7 @@ module Deployment
       def call
         configurations = Deployment::ConfigurationBuilders::ByProjectInstance.new(@project_instance).call.map(&:to_h)
         build_action = BuildAction.create!(project_instance: @project_instance, author: @current_user, action: BuildActionConstants::RECREATE_INSTANCE)
-        ServerActionsCallJob.perform_later(Deployment::ServerActions::Recreate.to_s, configurations, build_action)
+        ServerActionsCallJob.perform_later(Deployment::KubeActions::Create.to_s, configurations, build_action)
       end
     end
   end

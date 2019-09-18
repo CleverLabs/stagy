@@ -3,6 +3,7 @@
 .git
 .gitignore
 .DS_Store
+.vagrant
 log/*.log
 tmp/
 node_modules/

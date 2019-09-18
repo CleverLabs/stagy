@@ -8,13 +8,11 @@ ENV APP_ROOT /deployqa
 RUN mkdir -p $APP_ROOT
 WORKDIR $APP_ROOT
 
-ADD Gemfile $APP_ROOT
-ADD Gemfile.lock $APP_ROOT
+COPY Gemfile Gemfile.lock $APP_ROOT/
 RUN bundle install
 
-ADD package.json $APP_ROOT
-ADD yarn.lock $APP_ROOT
+COPY package.json yarn.lock $APP_ROOT/
 RUN yarn
 
-ADD . $APP_ROOT
+COPY . $APP_ROOT
 RUN bundle exec rake assets:precompile
