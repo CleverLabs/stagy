@@ -44,6 +44,10 @@ module ProviderAPI
       private
 
       attr_reader :gitlab_client
+
+      def repository_webhook_token(repo_id)
+        OpenSSL::HMAC.hexdigest(OpenSSL::Digest::SHA1.new, ENV["GITLAB_WEBHOOK_SECRET"], repo_id.to_s)
+      end
     end
   end
 end
