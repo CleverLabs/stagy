@@ -19,7 +19,7 @@ module GitlabIntegration
         private
 
         def get_user(user_id)
-          ::User.find_or_create_by!(auth_provider: ProjectsConstants::Providers::GITHUB, auth_uid: user_id) do |user|
+          ::User.find_or_create_by!(auth_provider: ProjectsConstants::Providers::GITLAB, auth_uid: user_id) do |user|
             user.full_name = @merge_request.user_name
           end
         end
