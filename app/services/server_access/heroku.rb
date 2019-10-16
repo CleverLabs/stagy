@@ -56,7 +56,7 @@ module ServerAccess
       safely { execute_command("rails db:schema:load", "DISABLE_DATABASE_ENVIRONMENT_CHECK" => 1) }
     end
 
-    def setup_worker(web_processes)
+    def setup_processes(web_processes)
       safely do
         formations = web_processes.map do |web_process|
           {

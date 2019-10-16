@@ -37,9 +37,10 @@ module Deployment
 
       def create_infrastructure(app_name, web_processes, configuration, state)
         server = ServerAccess::Heroku.new(name: app_name)
-        state.add_state(:setup_db) { server.setup_db }
-        state.add_state(:setup_worker) { server.setup_worker(web_processes) } unless configuration.docker?
-        state.add_state(:restart_server) { server.restart }
+        state
+          .add_state(:setup_db) { server.setup_db }
+          .add_state(:setup_processes) { server.setup_processes(web_processes) }
+          .add_state(:restart_server) { server.restart }
       end
 
       def push_code_to_server(configuration, state)
