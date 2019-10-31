@@ -41,9 +41,7 @@ module Deployment
         state.add_state(:setup_db) { server.setup_db }
         state.add_state(:run_seeds) { server.run_command(migration_command) } if migration_command.present?
 
-        state
-          .add_state(:setup_processes) { server.setup_processes(web_processes) }
-          .add_state(:restart_server) { server.restart }
+        state.add_state(:setup_processes) { server.setup_processes(web_processes) }
       end
 
       def push_buildpacks(configuration, state)
