@@ -25,7 +25,12 @@
   <div class="wrapper__wrap">
     <header class="header">
       <div class="header_inner container">
-        <img class="header_logo" src="static/images/logo.svg" alt>
+        <div class="header_logo_wrap">
+          <img class="header_logo" src="static/images/logo.svg" alt>
+          <% unless current_user.present? %>
+            <%= link_to "Login", sessions_path, class: "header_login" %>
+          <% end %>
+        </div>
         <div class="header_wrap">
           <div class="header_info-item">
             <div class="header_info">

@@ -2235,8 +2235,17 @@ a:focus, a:hover {
     }
 }
 
-.header_logo {
-    margin-bottom: 34px
+.header_logo_wrap {
+    margin-bottom: 34px;
+    display: flex;
+    margin-bottom: 34px;
+    justify-content: space-between;
+}
+
+.header_login {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 600;
 }
 
 @media (max-width: 767px) {
@@ -2244,6 +2253,15 @@ a:focus, a:hover {
         position: absolute;
         top: 25px;
         left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        margin-bottom: 0
+    }
+
+    .header_login {
+        position: absolute;
+        top: 25px;
+        left: 90%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
         margin-bottom: 0
