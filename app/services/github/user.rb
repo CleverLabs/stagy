@@ -27,7 +27,7 @@ module Github
     end
 
     def github_email
-      ProviderAPI::Github::UserClient.new(@auth_info_presenter.token).emails.find { |email_info| email_info[:primary] }.fetch(:email)
+      ProviderAPI::Github::UserClient.new(@auth_info_presenter.token).emails.find { |email_info| email_info[:primary] }[:email]
     end
 
     def user_uniq_id
