@@ -21,6 +21,8 @@ module ServerAccess
     end
 
     def push_buildpacks(buildpacks)
+      return ReturnValue.ok unless buildpacks.any? { |buildpack| buildpack.present? }
+
       updates = buildpacks.map { |buildpack| { buildpack: buildpack } }
       safe_call.safely do
         @heroku.buildpack_installation.update(@name, updates: updates)
