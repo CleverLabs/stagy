@@ -28,9 +28,9 @@ class ProjectUserRolesController < ApplicationController
 
   def find_user(project)
     User
-      .joins(:auth_info)
-      .where(auth_provider: project.integration_type) # TODO: remove when we will merge users with different providers
-      .find_by("auth_infos.data->>'email' = ?", params[:project_user_role][:email])
+      .joins(user_references: :auth_info)
+      .where(auth_infos: { email: params[:project_user_role][:email] })
+      .first
   end
 
   def project_user_role_params
