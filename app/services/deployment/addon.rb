@@ -8,5 +8,6 @@ module Deployment
     attribute :integration_provider, String
     attribute :credentials_names, Array, of: String
     attribute :credentials, Hash
+    attribute :addon_type, String
   end
 end
