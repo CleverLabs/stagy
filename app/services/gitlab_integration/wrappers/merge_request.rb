@@ -36,7 +36,7 @@ module GitlabIntegration
       end
 
       def edited_by_id
-        mr_attributes.fetch("updated_by_id")
+        mr_attributes.fetch("updated_by_id").presence || author_id
       end
 
       def user_name
