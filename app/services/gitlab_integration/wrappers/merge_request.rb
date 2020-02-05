@@ -36,7 +36,7 @@ module GitlabIntegration
       end
 
       def edited_by_id
-        mr_attributes.fetch("last_edited_by_id") # Maybe the key must be "updated_by_id"
+        mr_attributes.fetch("updated_by_id")
       end
 
       def user_name
