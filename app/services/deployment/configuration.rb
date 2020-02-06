@@ -37,7 +37,7 @@ module Deployment
     end
 
     def fill_seeds?
-      db_addon_present? && configuration.seeds_command.present?
+      db_addon_present? && seeds_command.present?
     end
   end
 end
