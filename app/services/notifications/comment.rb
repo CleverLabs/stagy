@@ -31,7 +31,9 @@ module Notifications
     end
 
     def deployed
-      "Application `#{@project_instance.name}` deployed!\nApplication url: #{@project_instance.configurations.first.application_url}"
+      @project_instance.configurations.inject("Application `#{@project_instance.name}` deployed!\n") do |result, configuration|
+        result + "#{configuration.repo_path}:`#{configuration.git_reference}` url: #{configuration.application_url}\n"
+      end
     end
 
     def failed
