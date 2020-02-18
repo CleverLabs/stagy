@@ -35,6 +35,6 @@ module Deployqa
 
     config.active_job.queue_adapter = :sidekiq
 
-    config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
+    config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :not_found
   end
 end
