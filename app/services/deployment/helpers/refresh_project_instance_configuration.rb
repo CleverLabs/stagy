@@ -12,7 +12,7 @@ module Deployment
         @project_instance.configurations.each do |configuration|
           repository = Repository.find(configuration.repository_id)
           configuration.env_variables = Deployment::ConfigurationBuilders::EnvVariablesBuilder.new(
-            repository, @project, @project_instance.name, active_repositories
+            repository, @project, configuration.application_name, active_repositories
           ).call
         end
         @project_instance.save
