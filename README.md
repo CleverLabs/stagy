@@ -17,12 +17,14 @@ DeployQA is an automated tool for application deployment. It helps teams to make
      - content - read
      - issues - read/write
      - pull requests - read/write
+     - email addresses - read-only
   3. Enable webhooks:
      - pull_requests
   4. Set 'Webhook URL' to your app
       ```
       https://<your_app_address>/webhooks/github
       ```
+      (you can use `https://smee.io/` for local development)
   5. Set 'Webhook secret'
  
 #### Configure Slack App
