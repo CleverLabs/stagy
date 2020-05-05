@@ -36,8 +36,9 @@ Enable `incoming-webhooks` it's used to send notifications to your slack channel
  1. Setup ENV variables, as described in `.env` file
  2. Install the Gems `bundle install`
  3. Setup DB `bundle exec rake db:setup`
- 4. Run server `bundle exec rails s`
- 5. Run sidekiq `bundle exec sidekiq`
+ 4. Run seeds `bundle exec rake db:seed_fu`
+ 5. Run server `bundle exec rails s`
+ 6. Run sidekiq `bundle exec sidekiq`
  
 ## Usage
 
