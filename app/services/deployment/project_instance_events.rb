@@ -47,9 +47,10 @@ module Deployment
     def initialize(build_action)
       @build_action = build_action
       @project_instance = build_action.project_instance
+      @project_instance_domain = ProjectInstanceDomain.new(record: @project_instance)
       @comment_types = COMMENT_TYPES.fetch(build_action.action)
       @instance_statuses = INSTANCE_STATUSES.fetch(build_action.action)
-      @message_policy = ProjectInstanceMessagePolicy.new(nil, @project_instance)
+      @message_policy = ProjectInstanceMessagePolicy.new(nil, @project_instance_domain)
     end
 
     def create_event(event)
@@ -71,7 +72,7 @@ module Deployment
       instance_status = @instance_statuses.fetch(event)
       return if instance_status == :no_change
 
-      ProjectInstanceDomain.new(record: @project_instance).update_status!(instance_status)
+      @project_instance_domain.update_status!(instance_status)
     end
   end
 end

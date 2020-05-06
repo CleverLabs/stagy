@@ -17,10 +17,10 @@ class ProjectInstanceMessagePolicy < ApplicationPolicy
   private
 
   def slack_event_enabled?
-    record.deployment_status == ProjectInstanceConstants::Statuses::RUNNING
+    record.deployment_status == ProjectInstanceConstants::Statuses::RUNNING && record.action_status != BuildActionConstants::Statuses::RUNNING
   end
 
   def project
-    @_project ||= record.project
+    @_project ||= record.project_instance_record.project
   end
 end
