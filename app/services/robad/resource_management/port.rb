@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "redis_storage"
+
 module Robad
   module ResourceManagement
     class Port
