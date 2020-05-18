@@ -1,0 +1,49 @@
+.container
+  .mt-5
+    h1 Admin dashboard
+  .mt-5
+    p.mb-1
+      | Number of running instances: 
+      = @active_instances.to_a.size
+    p.mb-1
+      | Active builds: 
+      = @active_builds_count
+    p.mb-1
+      | Projects count: 
+      = @projects_names.size
+    p.mb-1
+      | Users count: 
+      = @users_count
+
+  - if @new_users.present?
+    .mt-5
+      h4.text-danger New users!
+      .row
+        - @new_users.each do |user|
+          .col-6.col-md-3.text-danger = user.full_name
+
+  - if @new_waiting_emails.present?
+    .mt-5
+      h4 New emails in waiting list!
+      .row
+        - @new_waiting_emails.each do |waiting_list|
+          .col-6.col-md-3.text-danger = waiting_list.email
+
+  .mt-5
+    h4 Instances with failed build for last 2 days
+    - if @instances_with_failed_build_for_last_2_days.empty?
+      .text-success No failed instances!
+    - @instances_with_failed_build_for_last_2_days.each do |project_instance|
+      = link_to project_instance.name, project_project_instance_path(project_instance.project_id, project_instance)
+
+  .mt-5
+    h4 Running instances
+    .row
+      - @active_instances.each do |project_instance|
+        = link_to "#{project_instance.project_name}##{project_instance.name}", project_project_instance_path(project_instance.project_id, project_instance), class: "col-6 col-md-3"
+
+  .mt-5
+    h4 Projects
+    .row
+      - @projects_names.each do |project_name|
+        .col-12 = project_name

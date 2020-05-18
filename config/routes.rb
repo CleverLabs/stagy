@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   resource :sessions, only: %i[show create destroy]
   resources :users, only: %i[show]
 
+  namespace :admin do
+    resource :dashboard, only: %i[show]
+  end
+
   namespace :webhooks do
     resources :github, only: %i[create]
     resources :gitlab_integrations, only: %i[create]

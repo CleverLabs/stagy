@@ -12,3 +12,5 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         .dropdown-menu aria-labelledby="navbarDropdown"
           = link_to "User preferences", user_path(current_user.actual_user), class: "dropdown-item"
           = link_to "Log out", sessions_path, method: :delete, class: "dropdown-item"
+          - if AdminPanelPolicy.new(current_user, :no_record).show?
+            = link_to "Admin dashboard", admin_dashboard_path, class: "dropdown-item"
