@@ -33,8 +33,17 @@
     h4 Instances with failed build for last 2 days
     - if @instances_with_failed_build_for_last_2_days.empty?
       .text-success No failed instances!
-    - @instances_with_failed_build_for_last_2_days.each do |project_instance|
-      = link_to project_instance.name, project_project_instance_path(project_instance.project_id, project_instance)
+    .row
+      - @instances_with_failed_build_for_last_2_days.each do |project_instance|
+        = link_to project_instance.name, project_project_instance_path(project_instance.project_id, project_instance), class: "text-danger col-6 col-md-3"
+
+  .mt-5
+    h4 Instances with active builds for last 2 days
+    - if @instances_with_active_builds_for_last_2_days.empty?
+      .text-success No active builds
+    .row
+      - @instances_with_active_builds_for_last_2_days.each do |project_instance|
+        = link_to project_instance.name, project_project_instance_path(project_instance.project_id, project_instance), class: "col-6 col-md-3"
 
   .mt-5
     h4 Running instances
