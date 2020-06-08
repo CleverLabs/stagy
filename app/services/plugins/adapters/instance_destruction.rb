@@ -13,7 +13,7 @@ module Plugins
         new(
           application_name: configuration.application_name,
           addon_names: configuration.addons.map(&:name),
-          addon_ports: configuration.addons.map { |addon| addon.specific_configuration["port"] }
+          addon_ports: configuration.addons.map { |addon| (addon.specific_configuration || {})["port"] }.compact
         )
       end
     end
