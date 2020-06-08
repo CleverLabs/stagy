@@ -49,7 +49,8 @@
     h4 Running instances
     .row
       - @active_instances.each do |project_instance|
-        = link_to "#{project_instance.project_name}##{project_instance.name}", project_project_instance_path(project_instance.project_id, project_instance), class: "col-6 col-md-3"
+        - color = project_instance.deployment_status == ProjectInstanceConstants::Statuses::SLEEPING ? "text-muted" : ""
+        = link_to "#{project_instance.project_name}##{project_instance.name}", project_project_instance_path(project_instance.project_id, project_instance), class: "col-6 col-md-3 #{color}"
 
   .mt-5
     h4 Projects
