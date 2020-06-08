@@ -32,7 +32,7 @@ module Deployment
     end
 
     def finalize(configurations = nil)
-      if last_state.status.ok?
+      if last_state&.status&.ok?
         @logger.info(I18n.t("build_actions.log.success", time: time_since_start), context: context_name)
         @instance_events.create_event(:success)
         @build_action.update(configurations: configurations) if configurations
@@ -40,7 +40,7 @@ module Deployment
         @instance_events.create_event(:failure)
       end
 
-      last_state.status
+      last_state&.status || ReturnValue.error(errors: "Cannot be started")
     end
 
     private
