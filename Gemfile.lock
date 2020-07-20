@@ -354,6 +354,9 @@ GEM
     sidekiq-cron (1.2.0)
       fugit (~> 1.1)
       sidekiq (>= 4.2.1)
+    sidekiq-statistic (1.4.0)
+      sidekiq (>= 5.0)
+      tilt (~> 2.0)
     simple_form (5.0.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -462,6 +465,7 @@ DEPENDENCIES
   shallow_attributes
   sidekiq
   sidekiq-cron (~> 1.2)
+  sidekiq-statistic
   simple_form
   slim
   spring

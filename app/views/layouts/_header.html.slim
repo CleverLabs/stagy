@@ -14,3 +14,4 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           = link_to "Log out", sessions_path, method: :delete, class: "dropdown-item"
           - if AdminPanelPolicy.new(current_user, :no_record).show?
             = link_to "Admin dashboard", admin_dashboard_path, class: "dropdown-item"
+            = link_to "Sidekiq", sidekiq_web_path, class: "dropdown-item"

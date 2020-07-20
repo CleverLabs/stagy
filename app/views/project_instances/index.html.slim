@@ -15,7 +15,7 @@
       - else
         small = link_to "(show all)", project_project_instances_path(@project, show_all: true), class: "ml-2"
     .d-flex.align-items-center.mt-2
-      = link_to "New instance", new_project_project_instance_path(@project), class: "btn btn-primary #{@new_instance_allowed ? "" : "disabled"}"
+      = link_to "Manual deploy", new_project_project_instance_path(@project), class: "btn btn-primary #{@new_instance_allowed ? "" : "disabled"}"
 
   - if @project_instances.empty?
     h4.mt-5.text-center No active instances
