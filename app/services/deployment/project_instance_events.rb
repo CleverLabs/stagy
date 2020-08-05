@@ -76,7 +76,8 @@ module Deployment
     private
 
     def update_status!(event)
-      @build_action.update!(status: BUILD_ACTION_STATUSES.fetch(event))
+      values = event == :start ? { start_time: Time.now } : { end_time: Time.now }
+      @build_action.update!(values.merge(status: BUILD_ACTION_STATUSES.fetch(event)))
 
       instance_status = @instance_statuses.fetch(event)
       return if instance_status == :no_change
