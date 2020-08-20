@@ -4,7 +4,7 @@ class BillingsController < ApplicationController
   def index
     @project = find_project
 
-    timeframe = Billing::Lifecycle::Timeframe.current_month(DateTime.now.beginning_of_month)
+    timeframe = Billing::Lifecycle::Timeframe.month_until_today(DateTime.now)
     @lifecycles = Billing::Lifecycle::InstanceLifecycleGenerator.new(@project, nil, timeframe).call
     @total_cost = Billing::Invoice::CostsCalculator.new(@lifecycles, timeframe).call
   end

@@ -10,8 +10,8 @@ module Billing
         new(start, start.end_of_month)
       end
 
-      def self.current_month(time_now)
-        new(time_now, time_now.end_of_month)
+      def self.month_until_today(date_now)
+        new(date_now.beginning_of_month, date_now.beginning_of_day)
       end
 
       def initialize(start_time, end_time)
