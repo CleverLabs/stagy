@@ -2,7 +2,13 @@
 
 module BillingHelper
   def lifecycle_time_humanize(duration_seconds)
-    "#{(duration_seconds / 60.to_d / 60.to_d / 24.to_d).ceil(7)} days"
+    "#{(duration_seconds / 60.to_d / 60.to_d).ceil(5)} hours"
+  end
+
+  def cost_explanation(lifecycle, type)
+    return "" if lifecycle.durations[type] == 0.0
+
+    " (#{lifecycle_time_humanize(lifecycle.durations[type])} * #{lifecycle.multipliers[type]} processes)"
   end
 
   def cost_humanize(cost_cents)

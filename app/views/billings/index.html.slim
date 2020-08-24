@@ -25,13 +25,13 @@
             td = link_to lifecycle.project_instance_name, project_project_instance_path(@project, lifecycle.project_instance_id), target: :_blank
             td
               = cost_humanize(lifecycle.costs[:run])
-              .text-secondary.small.d-inline = " (#{lifecycle_time_humanize(lifecycle.durations[:run])})"
+              .text-secondary.small.d-inline = cost_explanation(lifecycle, :run)
             td
               = cost_humanize(lifecycle.costs[:build])
-              .text-secondary.small.d-inline = " (#{lifecycle_time_humanize(lifecycle.durations[:build])})"
+              .text-secondary.small.d-inline = cost_explanation(lifecycle, :build)
             td
               = cost_humanize(lifecycle.costs[:sleep])
-              .text-secondary.small.d-inline = " (#{lifecycle_time_humanize(lifecycle.durations[:sleep])})"
+              .text-secondary.small.d-inline = cost_explanation(lifecycle, :sleep)
             td
               = cost_humanize(lifecycle.costs[:run] + lifecycle.costs[:build] + lifecycle.costs[:sleep])
 

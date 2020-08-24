@@ -50,14 +50,14 @@ module Billing
         return if first_action.action == BuildActionConstants::CREATE_INSTANCE
 
         previous_build_action = @queries.previous_successful_build_action_for(first_action)
-        lifecycle.add_state_for_previous_actions(previous_build_action&.action, start_time: @timeframe.start, end_time: nil)
+        lifecycle.add_state_for_previous_actions(previous_build_action&.action, start_time: @timeframe.start, end_time: nil, configurations: previous_build_action&.configurations)
       end
 
       def lifecycles_from_instances_without_build_actions
         instances_without_build_actions.map do |project_instance|
           previous_action = @queries.previous_actions_for(project_instance, end_time: @timeframe.start).last
           lifecycle = build_new_lifecycle(project_instance.id, project_instance.name, [])
-          lifecycle.add_state_for_previous_actions(previous_action&.action, start_time: @timeframe.start, end_time: @timeframe.end)
+          lifecycle.add_state_for_previous_actions(previous_action&.action, start_time: @timeframe.start, end_time: @timeframe.end, configurations: previous_action&.configurations)
           lifecycle
         end
       end
