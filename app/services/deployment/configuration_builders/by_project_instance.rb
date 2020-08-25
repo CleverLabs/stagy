@@ -12,7 +12,7 @@ module Deployment
 
       def call
         repositories_with_configurations.map do |repository, configuration|
-          raise Errors::General, "DeploymentConfiguration and ProjectInstance configuration mismatch!" if repository.id != configuration.repository_id.to_i
+          raise GeneralError, "DeploymentConfiguration and ProjectInstance configuration mismatch!" if repository.id != configuration.repository_id.to_i
 
           Deployment::Configuration.new(configuration_hash(repository, configuration))
         end

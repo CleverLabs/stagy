@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "utils/encryptor"
+
 module Robad
   class Executor
     def initialize(build_action)

@@ -16,8 +16,8 @@ module GitlabIntegration
       end
 
       def call
-        raise Errors::General, "Invalid signature" unless valid_signature?
-        raise Errors::General, "Invalid github event '#{request.event_type}'" unless valid_event?
+        raise GeneralError, "Invalid signature" unless valid_signature?
+        raise GeneralError, "Invalid github event '#{request.event_type}'" unless valid_event?
 
         return ReturnValue.new(status: :no_action) unless processor_class
 

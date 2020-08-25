@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "utils/encryptor"
+
 module External
   class EventReceiverJob
     include Sidekiq::Worker

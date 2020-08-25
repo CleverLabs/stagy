@@ -35,8 +35,8 @@ module Github
 
       def call
         return if @request.github_event == PING_EVENT
-        raise Errors::General, "Invalid signature" unless valid_signature?
-        raise Errors::General, "Invalid github event '#{@request.github_event}'" unless valid_event?
+        raise GeneralError, "Invalid signature" unless valid_signature?
+        raise GeneralError, "Invalid github event '#{@request.github_event}'" unless valid_event?
 
         event_mapping = EVENTS_MAPPING.fetch(@request.github_event)
         action_key = @body.fetch("action", DEFAULT_ACTION)
