@@ -29,16 +29,16 @@ module Billing
 
       def set_cost_to_lifecycle(lifecycle, type)
         configurations = lifecycle.states[type].first&.configurations
+
         lifecycle.multipliers[type] = calculate_price(configurations, type)
-        lifecycle.costs[type] = duration_to_cost(lifecycle.durations[type], @pricing["#{type}_cents".to_sym], configurations, type)
+        lifecycle.costs[type] = duration_to_cost(lifecycle.durations[type], configurations, type)
       end
 
-      def duration_to_cost(duration_seconds, cost_cents, configurations, type)
+      def duration_to_cost(duration_seconds, configurations, type)
         return 0 if duration_seconds.zero?
 
-        days = duration_seconds / 60.to_d / 60.to_d / 24.to_d
-
-        (days * (calculate_price(configurations, type) * cost_cents / 30.to_d)).floor
+        hours = duration_seconds / 60.to_d / 60.to_d
+        (hours * (calculate_price(configurations, type) * @pricing["#{type}_cents".to_sym])).floor
       end
 
       def calculate_price(configurations, type)
