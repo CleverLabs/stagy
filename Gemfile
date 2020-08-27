@@ -75,6 +75,7 @@ group :test do
   gem "capybara"
   gem "rspec-rails"
   gem "selenium-webdriver"
+  gem "simplecov"
   gem "vcr"
   gem "webdrivers"
   gem "webmock"

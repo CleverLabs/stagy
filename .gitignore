@@ -45,3 +45,7 @@ yarn-debug.log*
 # Env
 .env.*
 .ruby-gemset
+
+
+# Coverage results
+/coverage

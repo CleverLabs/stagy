@@ -63,6 +63,9 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
+require "simplecov"
+SimpleCov.start "rails"
+
 require "vcr"
 
 VCR.configure do |config|
