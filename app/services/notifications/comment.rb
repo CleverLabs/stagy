@@ -5,7 +5,7 @@ module Notifications
     # rubocop:disable Layout/LineLength
     FIRST_COMMENT_TEXT = %{
 ---
-[<img height="70" width="70" src='https://deployqa-production.s3.amazonaws.com/public-icons/run.png' align='absmiddle' title='Deploy branch via DeployQA' />](%<deploy_url>s) [<img height="70" width="70" src='https://deployqa-production.s3.amazonaws.com/public-icons/run_with_setup_dark.png' align='absmiddle' title='Customize and deploy branch via DeployQA' />](%<custom_deploy_url>s) [<img height="70" width="50" src='https://deployqa-production.s3.amazonaws.com/public-icons/setup.png' align='absmiddle' title='Open instance page' />](%<project_instance_url>s)
+[<img height="70" width="70" src='https://deployqa-production.s3.amazonaws.com/public-icons/run.png' align='absmiddle' title='Deploy branch via Stagy' />](%<deploy_url>s) [<img height="70" width="70" src='https://deployqa-production.s3.amazonaws.com/public-icons/run_with_setup_dark.png' align='absmiddle' title='Customize and deploy branch via Stagy' />](%<custom_deploy_url>s) [<img height="70" width="50" src='https://deployqa-production.s3.amazonaws.com/public-icons/setup.png' align='absmiddle' title='Open instance page' />](%<project_instance_url>s)
 }
     # rubocop:enable Layout/LineLength
 
@@ -14,7 +14,7 @@ module Notifications
     end
 
     def failure_header
-      "Unexpected error in deployqa"
+      "Unexpected error in Stagy"
     end
 
     def header

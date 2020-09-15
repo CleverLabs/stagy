@@ -10,7 +10,7 @@
   },
   "formation": {
   },
-  "name": "deployqa",
+  "name": "stagy",
   "scripts": {
   },
   "stack": "heroku-18"

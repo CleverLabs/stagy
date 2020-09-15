@@ -4,7 +4,7 @@ RUN apk add --no-cache build-base ca-certificates curl git nginx tzdata sudo pos
 RUN gem install bundler -v 2.1.4
 RUN bundle config silence_root_warning 1
 
-ENV APP_ROOT /deployqa
+ENV APP_ROOT /stagy
 RUN mkdir -p $APP_ROOT
 WORKDIR $APP_ROOT
 

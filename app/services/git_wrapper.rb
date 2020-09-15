@@ -54,7 +54,7 @@ class GitWrapper
   private
 
   def configure_git
-    @git_client.config("user.name", "DeployQA")
+    @git_client.config("user.name", "Stagy")
     @git_client.config("user.email", "deployqa@cleverlabs.io")
     @git_client.config("commit.gpgsign", "false")
   end

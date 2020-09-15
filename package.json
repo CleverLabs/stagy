@@ -1,5 +1,5 @@
 {
-  "name": "deployqa",
+  "name": "stagy",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "4.0.7",

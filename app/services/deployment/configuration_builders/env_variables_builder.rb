@@ -13,7 +13,7 @@ module Deployment
       def call
         @repository.runtime_env_variables
                    .merge(application_variables)
-                   .merge("DEPLOYQA_DEPLOYMENT" => "1")
+                   .merge("STAGY_DEPLOYMENT" => "1")
       end
 
       private

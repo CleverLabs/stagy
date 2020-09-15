@@ -1,8 +1,6 @@
-# DeployQA
+# Stagy
 
-![Deployqa logo](https://raw.githubusercontent.com/CleverLabs/deployqa/master/app/javascript/images/logos/deployqa-with-word.png)
-
-DeployQA is an automated tool for application deployment. It helps teams to make deployment and testing processes simple and easy to maintain.
+Stagy is an automated tool for application deployment. It helps teams to make deployment and testing processes simple and easy to maintain.
 
 ## Installation
  
@@ -31,7 +29,7 @@ DeployQA is an automated tool for application deployment. It helps teams to make
 
 Enable `incoming-webhooks` it's used to send notifications to your slack channel
  
-#### Configure DeployqQA
+#### Configure Stagy
 
  1. Setup ENV variables, as described in `.env` file
  2. Install the Gems `bundle install`
@@ -54,7 +52,7 @@ Enable `incoming-webhooks` it's used to send notifications to your slack channel
  
 3. Deploy
 
-    - [Deployment Wiki](https://github.com/CleverLabs/deployqa/wiki/Deployment)
+    - [Deployment Wiki](https://github.com/CleverLabs/stagy/wiki/Deployment)
 
 ## License
 
