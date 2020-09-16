@@ -2,3 +2,8 @@ sleepy_watcher:
   cron: "*/5 * * * *"
   class: "SleepyWatcherJob"
   queue: default
+
+# timely_payment_watcher:
+#   cron: "0 0 * * *"
+#   class: "TimelyPaymentWatcher"
+#   queue: default

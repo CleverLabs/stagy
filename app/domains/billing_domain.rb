@@ -44,4 +44,8 @@ class BillingDomain
 
     @project.number_of_active_instances < @billing_info_record.application_plan.max_allowed_instances
   end
+
+  def deactivate!
+    @billing_info.update(active: false)
+  end
 end

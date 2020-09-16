@@ -40,6 +40,10 @@ class ProjectDomain
     @project_record.repositories.find_by(path: repo_path).status == RepositoryConstants::ACTIVE
   end
 
+  def last_invoice_payed?
+    @project_record.invoices.order(:end_time).last.payment_accepted?
+  end
+
   def number_of_active_instances
     @project_record.project_instances.where.not(deployment_status: ProjectInstanceConstants::Statuses::ALL_NOT_ACTIVE).count
   end
