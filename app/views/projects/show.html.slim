@@ -74,6 +74,26 @@
             td = project_user_role.role.humanize
             td = link_to "X", project_project_user_role_path(@project, project_user_role), method: :delete, data: { confirm: "Are you sure want to remove user from project?" }
 
+  - if ProjectPolicy.new(current_user, @project).billing?
+    .d-flex.justify-content-between.mt-5
+      h3
+        | Billing
+        small = link_to "show current month estimate", project_billings_path(@project), class: "pl-3"
+      .d-flex.align-items-center
+    .mt-4
+      p
+        | Currently you are using 
+        span.font-weight-bold = @project_domain.billing.plan_name
+        |  plan. Active until 
+        = @project_domain.billing.active_until.to_date
+      p
+        span.font-weight-bold = format_price_per_hours @project_domain.billing.pricing_by_types.fetch(:run_cents)
+        |  for running process, 
+        span.font-weight-bold = format_price_per_hours @project_domain.billing.pricing_by_types.fetch(:sleep_cents)
+        |  for sleeping process, 
+        span.font-weight-bold = format_price_per_hours @project_domain.billing.pricing_by_types.fetch(:build_cents)
+        |  for process's build time.
+
 #addNewMemberModal.modal.fade aria-hidden="true" aria-labelledby="addNewMemberModalLabel" role="dialog" tabindex="-1"
   .modal-dialog role="document"
     .modal-content

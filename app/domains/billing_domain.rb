@@ -3,7 +3,7 @@
 class BillingDomain
   attr_reader :billing_info_record
 
-  delegate :active?, to: :billing_info_record
+  delegate :active?, :active_until, to: :billing_info_record
 
   def self.create!(project:, application_plan: nil)
     application_plan ||= ApplicationPlan.find_by(name: "trial")
@@ -25,6 +25,10 @@ class BillingDomain
   def initialize(billing_info, project)
     @billing_info_record = billing_info
     @project = project
+  end
+
+  def plan_name
+    @billing_info_record.application_plan.name
   end
 
   def max_allowed_instances

@@ -14,4 +14,8 @@ module BillingHelper
   def cost_humanize(cost_cents)
     "$#{cost_cents / 100.to_d}"
   end
+
+  def format_price_per_hours(cost_cents)
+    "#{cost_humanize(cost_cents)}/hour"
+  end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_150510) do
+ActiveRecord::Schema.define(version: 2020_09_16_152807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 2020_09_07_150510) do
     t.decimal "run_cents", null: false
     t.decimal "build_cents", null: false
     t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "active_until", null: false
     t.index ["application_plan_id"], name: "index_billing_infos_on_application_plan_id"
     t.index ["project_id"], name: "index_billing_infos_on_project_id"
     t.index ["project_id"], name: "unique_index_billing_infos_on_project_id", unique: true

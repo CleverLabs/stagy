@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = find_project
+    @project_domain = ProjectDomain.new(record: @project)
     @repositories = @project.repositories.order(:name)
     @roles = @project.project_user_roles.includes(:user)
     @project_github_entity = GithubEntity.find_by(owner: @project) if @project.integration_type == ProjectsConstants::Providers::GITHUB

@@ -8,5 +8,6 @@ FactoryBot.define do
     sleep_cents { 0.2 }
     run_cents { 3 }
     build_cents { 4.5 }
+    active_until { Date.today + 1.month }
   end
 end
