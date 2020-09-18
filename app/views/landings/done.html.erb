@@ -18,9 +18,17 @@
   <link rel="stylesheet" href="static/css/main.css">
 
   <title>Stagy on-demand environments</title>
+
+  <% if Rails.env.production? %>
+    <%= render partial: "layouts/google_analytics" %>
+  <% end %>
 </head>
 
 <body class="popup-opened">
+  <% if Rails.env.production? %>
+    <%= render partial: "layouts/google_tag_manager" %>
+  <% end %>
+
   <div class="popup" style="">
     <div class="popup_box pshow">
       <div class="popup_inner">
