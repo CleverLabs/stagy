@@ -48,7 +48,7 @@ module Deployment
       end
 
       def build_configuration(configuration)
-        return configuration.build_configuration if @action.to_sym != BuildActionConstants::UPDATE_INSTANCE
+        return configuration.build_configuration if @action.to_s != BuildActionConstants::UPDATE_INSTANCE
 
         build_configuration = configuration.build_configuration
         add_github_token(build_configuration) if build_configuration["private_gem_detected"] && @project.integration_type == ProjectsConstants::Providers::GITHUB
@@ -61,7 +61,7 @@ module Deployment
       end
 
       def web_processes(configuration)
-        return configuration.web_processes if @action.to_sym != BuildActionConstants::UPDATE_INSTANCE
+        return configuration.web_processes if @action.to_s != BuildActionConstants::UPDATE_INSTANCE
 
         configuration.web_processes.map do |web_process|
           process_name = web_process["expose_port"].present? ? web_process["name"] : "web"
