@@ -3,8 +3,22 @@
 class LandingsController < ApplicationController
   skip_before_action :login_if_not
 
+  layout "landing"
+
   def index
-    render :index, layout: false
+    render :index
+  end
+
+  def roles
+    render :roles
+  end
+
+  def pricing
+    render :pricing
+  end
+
+  def faq
+    render :faq
   end
 
   def create

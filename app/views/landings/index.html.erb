@@ -1,321 +1,263 @@
-<!DOCTYPE html>
-<html lang="ru">
 
-<head>
-  <meta charset="utf-8">
+<main class="page__content">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <meta name="description" content="Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments." />
-  <meta name="keywords" content="stagy,deployqa,staging,deployment,qa,demo,on demand,environment" />
-  <meta property="og:title" content="Stagy on-demand environments" />
-  <meta property="og:description" content="Deploy on-demand environments easily. Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://stagy.dev/" />
-  <meta property="og:image" content="https://stagy.dev/static/images/logo.svg" />
-
-  <link rel="stylesheet" href="static/css/main.css">
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6898069.js"></script>
-
-  <title>Stagy on-demand environments</title>
-
-  <% if Rails.env.production? %>
-    <%= render partial: "layouts/google_analytics" %>
-  <% end %>
-</head>
-
-<body>
-<% if Rails.env.production? %>
-  <%= render partial: "layouts/google_tag_manager" %>
-<% end %>
-
-<div class="wrapper">
-  <div class="wrapper__wrap">
-    <header class="header">
-      <div class="header_inner container">
-        <div class="header_logo_wrap">
-          <img class="header_logo" src="static/images/logo.svg" alt>
-          <% unless current_user.present? %>
-            <%= link_to "Login", sessions_path, class: "header_login" %>
-          <% end %>
+<section class="section section--tablet-s js-hero-section">
+    <div class="hero">
+        <div class="hero__bg">
+              <picture>
+                  
+                    <source media="(max-width: 767px)" data-srcset="static/images/landing/main/bg/bg-mobile.webp, static/images/landing/main/bg/bg-mobile@2x.webp 2x" type="image/webp">
+                  <source media="(max-width: 767px)" data-srcset="static/images/landing/main/bg/bg-mobile.png, static/images/landing/main/bg/bg-mobile@2x.png 2x" type="image/png">
+                  
+                    <source media="(max-width: 1279px)" data-srcset="static/images/landing/main/bg/bg-smallTablet.webp, static/images/landing/main/bg/bg-smallTablet@2x.webp 2x" type="image/webp">
+                  <source media="(max-width: 1279px)" data-srcset="static/images/landing/main/bg/bg-smallTablet.png, static/images/landing/main/bg/bg-smallTablet@2x.png 2x" type="image/png">
+                
+                  <source data-srcset="static/images/landing/main/bg/bg.webp, static/images/landing/main/bg/bg@2x.webp 2x" type="image/webp">
+                <source data-srcset="static/images/landing/main/bg/bg.png, static/images/landing/main/bg/bg@2x.png 2x" type="image/png">
+                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/bg/bg.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+              </picture>
         </div>
-        <div class="header_wrap">
-          <div class="header_info-item">
-            <div class="header_info">
-              <h1 class="title_sub header_title">
-                Deploy on-demand environments easily
-              </h1>
-              <p class="text header_text">
-                Stagy is a platform built to automate creation
-                of QA, Demo and sandbox environments.
-              </p>
-              <% if current_user.present? %>
-                <%= link_to "Go to App", projects_path, class: "btn btn-violet" %>
-              <% else %>
-                <form action="/landings" method="GET" class="email-field ">
-                  <input type="email" class="email-input" name="email" placeholder="Your Email" required>
-                  <input type="submit" class="btn btn-violet" value="Request Access">
-                </form>
-                <small class="header_text--small">
-                  Stagy is in private beta right now. You can leave your email to get access.
-                </small>
-              <% end %>
+        <div class="hero__inner container">
+            <div class="hero__content">
+                <h1 class="hero__title">Stagings <br>
+                    made simple</h1>
+                <p class="text hero__text">Create unlimitied on-demand environments for Your Demos, QA and Sandboxes </p>
+                <div class="hero__form-field">
+                      <div class="form-field">
+                        <input type="text" class="form-field__input " placeholder="Enter your email">
+                      </div>
+                    <div class="form-field__input-btn">
+                            <button type="button" class="btn btn--small">Submit</button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="header_img-item">
-            <div class="header_img">
-              <img src="static/images/header-img.png" alt>
+        </div>
+    </div>
+</section><section class="section js-how-it-works section--how-it-works">
+    <div class="how-it-works__inner">
+        <div class="container">
+            <div class="info">
+                <div class="info__wrapper">
+                    <div class="info__title">How it works</div>
+                    <div class="info__text">Stagy.dev does all the hard and important work of delivering files from your
+                        repositories
+                        to your server. No magic. Easy to do in 3 steps.
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </header>
-
-    <div class="wrapper__inner">
-
-<section class="start">
-  <div class="container">
-    <h2 class="title start_title">
-      How to start
-    </h2>
-    <span class="text start_small">
-      Stagy does all the hard and important work of delivering files from your repositories to your server.
-      No magic. Easy to do in 3 steps.
-    </span>
-    <div class="start-row">
-      <div class="start_item start_item-1">
-        <h4 class="title_item">
-          Connect repository
-        </h4>
-        <p class="text_sub">
-          Install Stagy application on GitHub repo, GitLab repo, or link to your self-hosted repo.
-        </p>
-      </div>
-      <div class="start_item start_item-2">
-        <h4 class="title_item">
-          Configure via UI
-        </h4>
-        <p class="text_sub">
-          Set up ENV variables, addons and
-          start-up commands for your
-          application.
-        </p>
-      </div>
-      <div class="start_item start_item-3">
-        <h4 class="title_item">
-          Deploy by one click
-        </h4>
-        <p class="text_sub">
-          Click "Deploy" button in Pull Request
-          and use newly created environment.
-          You can also create an instance in our application with specified branch.
-        </p>
-      </div>
     </div>
-  </div>
+</section><section class="section">
+    <div class="container">
+        <div class="animate js-slideshow">
+            <div class="animate__wrapper">
+                <div class="animate__left">
+                    <div class="animate__scene js-slideshow__scene">
+                        <div class="animate__slide js-slideshow__slide">
+                            <video src="static/video/stagy-p1.mp4" muted autoplay loop>
+                            </video>
+
+                        </div>
+                        <div class="animate__slide js-slideshow__slide">
+                            <video src="static/video/stagy-pt2.mp4" muted autoplay loop>
+                            </video>
+                        </div>
+                        <div class="animate__slide js-slideshow__slide">
+                            <video src="static/video/stagy-pt3.mp4" muted autoplay loop>
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate__right">
+                    <div class="tab">
+                        <div class="tab__wrapper">
+                            <div class="tab-item js-slideshow__tab">
+                                <div class="tab-item__content">
+                                    <span class="tab-item__title">Click the button</span>
+                                    <div class="tab-item__body">
+                                        <div class="tab-item__body-inner">
+                                            <p>We empower consumer messaging with qualities of enterprise communication
+                                                platform. Just
+                                                click the button and nothing more.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-item__image">
+                                    <video src="static/video/stagy-p1.mp4" muted autoplay loop>
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="tab-item js-slideshow__tab">
+                                <div class="tab-item__content">
+                                    <span class="tab-item__title">Stagy doing work...</span>
+                                    <div class="tab-item__body">
+                                        <div class="tab-item__body-inner">
+                                            <p>Click “Get Started” button. After that create new project, setup Stagy on
+                                                repository. Set
+                                                settings and start deploying.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-item__image">
+                                    <video src="static/video/stagy-pt2.mp4" muted autoplay loop>
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="tab-item js-slideshow__tab">
+                                <div class="tab-item__content">
+                                    <span class="tab-item__title">Use your app!</span>
+                                    <div class="tab-item__body">
+                                        <div class="tab-item__body-inner">
+                                            <p>Click “Get Started” button. After that create new project, setup Stagy on
+                                                repository. Set
+                                                settings and start deploying.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-item__image">
+                                    <video src="static/video/stagy-pt3.mp4" muted autoplay loop>
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="section section--dark">
+    <div class="container">
+        <div class="save">
+            <div class="save__content">
+                <div class="save__wrapper">
+                    <div class="save__left">
+                        <h2 class="save__title">Save your costs</h2>
+                        <p class="save__text">Say no to spending money on idle servers for staging! Stagy sets on pause
+                            servers that not in use
+                        </p>
+                        <div class="save__cta-btn">
+                                <a href="#form" class="btn btn--normal btn--yellow js-scroll-to">Get Started</a>
+                        </div>
+                    </div>
+                    <div class="save__right">
+                        <div class="save__content-right">
+                            <div class="save__content-image">
+                                <div class="save__content-desktop">
+                                    <div class="save__content-background js-coin">
+                                        <div class="save__content-coin js-coin__image">
+                                              <picture>
+                                            
+                                            
+                                                <source data-srcset="static/images/landing/main/coin.png, static/images/landing/main/coin@2x.png 2x" type="image/png">
+                                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/coin.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                              </picture>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="save__content-mobile">
+                                      <picture>
+                                    
+                                    
+                                        <source data-srcset="static/images/landing/main/staging/save.png, static/images/landing/main/staging/save@2x.png 2x" type="image/png">
+                                        <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/save.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                      </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><section class="section">
+    <div class="container">
+        <div class="target">
+            <h2 class="target__section-title">Who is this product for?</h2>
+            <ul class="target-list ">
+                    <li class="target-list__row ">
+                        <div class="target-list__cell-left">
+                            <h3 class="target-list__title">Product <br>Managers</h3>
+                                <div class="target-list__link">
+                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    </a>
+                                </div>
+                        </div>
+                        <div class="target-list__cell-right">
+                            <p class="target-list__text">Control your team progress – review changes of any pull request with no need for asking for deployment. Perfom fully function product or feature demos without using a production server</p>
+                        </div>
+                    </li>
+                    <li class="target-list__row target-list__row--reverse">
+                        <div class="target-list__cell-left">
+                            <h3 class="title  title--big target-list__title">Quality <br>Assurance</h3>
+                                <div class="target-list__link">
+                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    </a>
+                                </div>
+                        </div>
+                        <div class="target-list__cell-right">
+                            <p class="target-list__text">Create stagings for feature testing with one click. No need to ask a developer to deploy feature – stagy can create clean staging for every code change.</p>
+                        </div>
+                    </li>
+                    <li class="target-list__row ">
+                        <div class="target-list__cell-left">
+                            <h3 class="target-list__title">Sales <br> Managers</h3>
+                                <div class="target-list__link">
+                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    </a>
+                                </div>
+                        </div>
+                        <div class="target-list__cell-right">
+                            <p class="target-list__text">Make live product demos for customers with no special technical knowledge. <br>Demonstrate every best feature piece of your product with one click</p>
+                        </div>
+                    </li>
+                    <li class="target-list__row target-list__row--reverse">
+                        <div class="target-list__cell-left">
+                            <h3 class="title  title--big target-list__title">Developers</h3>
+                                <div class="target-list__link">
+                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    </a>
+                                </div>
+                        </div>
+                        <div class="target-list__cell-right">
+                            <p class="target-list__text">Save time letting any team member create staging without your involvement . <br>Enjoy automatic infrastructure management and deployment. Focus on product development, don’t waste your time on servers</p>
+                        </div>
+                    </li>
+            </ul>
+        </div>
+    </div>
 </section>
-<section class="use">
-  <div class="container">
-    <h2 class="title use_title">
-      Who can use
-    </h2>
 
-    <div class="use_wrap">
-      <div class="use-item-wrap">
-        <div class="use-item use-item-1">
-          <h4 class="title_item">QA engineers</h4>
-          <span class="text">
-            For manual application testing on production-like environment.
-          </span>
+<section class="section">
+    <div class="container">
+        <div class="staging">
+            <div class="staging__inner">
+                <div class="staging__wrapper">
+                    <div class="staging__left">
+                        <div class="staging__left-top">
+                            <span class="staging__title">Stagings made simple</span>
+                            <p class="staging__text">Create unlimitied on-demand environments for Your Demos, QA and
+                                Sandboxes
+                            </p>
+                        </div>
+                        <div class="staging__left-bottom">
+                                <a href="#" class="btn btn--normal ">Get Started</a>
+                        </div>
+
+                    </div>
+                    <div class="staging__right">
+                        <div class="staging__right-wrapper">
+                              <picture>
+                            
+                            
+                                <source data-srcset="static/images/landing/main/staging/staging.png, static/images/landing/main/staging/staging@2x.png 2x" type="image/png">
+                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/staging.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                              </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="use-item use-item-2">
-          <h4 class="title_item">Developers</h4>
-          <span class="text">
-            For application testing and as a sandbox for customers.
-          </span>
-        </div>
-      </div>
-      <div class="use-item-wrap">
-        <div class="use-item use-item-3">
-          <h4 class="title_item">Designers</h4>
-          <span class="text">
-            To check design and layout of designed application.
-          </span>
-        </div>
-        <div class="use-item use-item-4">
-          <h4 class="title_item">Demo-makers</h4>
-          <span class="text">
-            Sales managers and product owners. For demos of web-application to customers.
-          </span>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
-<section class="why">
-  <div class="container">
-    <h2 class="title why_title">
-      Why us
-    </h2>
-    <div class="why-row">
-      <div class="why-col-lg-4">
-        <div class="why_item">
-          <div class="why_title-wrap why_title-wrap-1">
-            <h5 class="text_sub why_title-item">
-              Faster QA
-            </h5>
-          </div>
-          <span class="text">
-            Configuring QA environments is hard. Multiple stagings, local environments, production-like environments - it's all complicated.
-          </span>
-          <span class="text why_text-icon">
-            Stagy makes it all for you!
-          </span>
-          <span class="text">
-            No need to deal with server and deployment. You only need to follow our installation.
-          </span>
-        </div>
-      </div>
-      <div class="why-col-lg-4">
-        <div class="why_item">
-          <div class="why_title-wrap why_title-wrap-2">
-            <h5 class="text_sub why_title-item why_title-item--padding">
-              On-demand demo
-            </h5>
-          </div>
-          <span class="text">
-            How to make a good demo of web application? There is a many ways: you can setup all what you need locally
-            on your machine, or make a new server and setup it here. Or even do it on production - setup all the data
-            restlessly clicking on the buttons. If you are lucky enough, your team has already automated this process.
-            But what if not?
-          </span>
-          <span class="text why_text-icon">
-            Stagy can handle it for you!
-          </span>
-          <span class="text">
-            Just click the button, and a new clean and shiny demo environment is ready to be shown!
-          </span>
-        </div>
 
-      </div>
-      <div class="why-col-lg-4">
-        <div class="why_item">
-          <div class="why_title-wrap why_title-wrap-3">
-            <h5 class="text_sub why_title-item">
-              Faster QA
-            </h5>
-          </div>
-          <span class="text">
-            Do you want to make a sandbox of your application? For example, let customer test your API on
-            a separate clean server?
-          </span>
-          <span class="text why_text-icon">
-            Stagy can handle it for you too!
-          </span>
-          <span class="text">
-            You can have a freshly created environment ready to be used for integration by your customer.
-          </span>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-<section class="features">
-  <div class="container">
-    <h2 class="title features_title">
-      Features
-    </h2>
-
-    <div class="features_wrap">
-      <div class="features-col">
-        <div class="features_item">
-          <img class="features_icon" src="static/images/features/features-1.svg" alt>
-          <h5 class="title_item">
-            Minimal configuration
-          </h5>
-          <span class="text_sub features_text">
-            You don't need an in-depth understanding of deployment process. Stagy requires bare minimum to deploy your application.
-          </span>
-        </div>
-        <div class="features_item">
-          <img class="features_icon" src="static/images/features/features-2.svg" alt>
-          <h5 class="title_item">
-            No need
-            <span>of additional infrastructure</span>
-          </h5>
-          <span class="text_sub features_text">
-            Stagy handles everything about server infrastructure and deployment.
-          </span>
-        </div>
-      </div>
-      <div class="features-col">
-        <div class="features_item">
-          <img class="features_icon" src="static/images/features/features-3.svg" alt>
-          <h5 class="title_item">
-            Addons
-          </h5>
-          <span class="text_sub features_text">
-            Addon system will help to provide creation and management of additional infrastructure like databases and cloud storages.
-          </span>
-        </div>
-        <div class="features_item features-m-0">
-          <img class="features_icon" src="static/images/features/features-4.svg" alt>
-          <h5 class="title_item">
-            Notifications:
-            <span>Slack, Pull requests</span>
-          </h5>
-          <span class="text_sub features_text features-w-80">
-            Get notified about instance gets created, updated or destroyed
-          </span>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-<section class="ready">
-  <div class="container">
-    <div class="ready_wrap">
-      <div class="ready_info">
-        <h4 class="ready_title">
-          Ready to get started?
-        </h4>
-        <span class="ready_text">
-            Stagy is in private beta right now. You can leave your email to get access.
-          </span>
-      </div>
-      <div class="ready_input">
-        <form action="/landings" method="GET" class="email-field" id="landing-submit-email-form">
-          <input type="email" placeholder="Your Email" name="email" class="email-input" required>
-          <input type="submit" class="btn btn-violet" value="Request Access">
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer_wrap">
-      <div class="footer_item-copy">
-        <img src="static/images/logo.svg" alt>
-        <small class="footer_copyright">
-          ©2020 Stagy. All rights reserved.
-        </small>
-      </div>
-
-      <a class="footer_contact" href="mailto:deployqa@cleverlabs.io">
-        deployqa@cleverlabs.io
-      </a>
-    </div>
-  </div>
-</footer>
-
-
-</div></div></body>
-
-</html>
+</main>
