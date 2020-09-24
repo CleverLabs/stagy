@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Stagy on-demand environments</title>
+    <meta name="description" content="Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments." />
+    <meta name="keywords" content="stagy,deployqa,staging,deployment,qa,demo,on demand,environment" />
+
+
+
+    <meta name="theme-color" content="#435FE4">
+
+<!--     <link rel="apple-touch-icon" sizes="180x180" href="static/images/landing/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/landing/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/landing/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="static/images/landing/favicon/safari-pinned-tab.svg" color="#6607df">
+ -->
+
+
+
+    <meta property="og:title" content="Stagy on-demand environments" />
+    <meta property="og:description" content="Deploy on-demand environments easily. Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stagy.dev/" />
+    <meta property="og:image" content="https://stagy.dev/static/images/logo.svg" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://stagy.dev/" />
+    <meta name="twitter:title" content="Stagy on-demand environments" />
+    <meta name="twitter:description" content="Deploy on-demand environments easily. Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments." />
+    <meta name="twitter:image" content="https://stagy.dev/static/images/logo.svg" />
+
+
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="preload" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/main.css">
+
+</head>
+
+
+<body class="page  ">
+<!-- <div class="preloader js-preloader"></div> -->
+  <div class="page__inner">
+
+    <header class="header page__header js-header">
+        <div class="container container--large">
+            <div class="header__inner">
+                <div class="header__left">
+                    <a href="/" class="logo ">
+                        <span class="logo__text">stagy<span class="logo__domain">.dev</span></span>
+                    </a>
+                  </div>
+                <div class="header__right">
+                    <div class="header__burger">
+                        <button class="header-burger  js-header__burger">
+                            <i></i>
+                        </button>
+                      </div>
+                    <nav class="header__menu">
+                        <ul class="header-menu">
+                            <li class="header-menu__item">
+                                <a class="header-menu__link header-menu__link--dropdown <%= 'active' if action_name == 'roles' %>">Who can use</a>
+                                <div class="header-menu__dropdown">
+                                    <ul class="header-menu__dropdown-menu">
+                                        <li class="header-menu__dropdown-item">
+                                            <a href="/roles" class="header-menu__dropdown-link">Product Managers</a>
+                                        </li>
+                                        <li class="header-menu__dropdown-item">
+                                            <a href="#" class="header-menu__dropdown-link">Quality Assurance</a>
+                                        </li>
+                                        <li class="header-menu__dropdown-item">
+                                            <a href="#" class="header-menu__dropdown-link">Sales Managers</a>
+                                        </li>
+                                        <li class="header-menu__dropdown-item">
+                                            <a href="#" class="header-menu__dropdown-link">Developers</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="header-menu__item">
+                                <a href="/pricing" class="header-menu__link <%= 'active' if action_name == 'pricing' %>">Pricing</a>
+                            </li>
+                            <li class="header-menu__item">
+                                <a href="/faq" class="header-menu__link <%= 'active' if action_name == 'faq' %>">FAQ</a>
+                            </li>
+<!--                             <li class="header-menu__item">
+                                <a href="/contact_us" class="header-menu__link">Contact us</a>
+                            </li>
+ -->                        </ul>
+                      </nav>
+                    <div class="header__cta">
+                        <a href="#form" class="btn btn--yellow btn--true-outline js-scroll-to">Get started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <%= yield %>
+
+
+
+
+    <footer class="footer page__footer">
+        <div class="footer-top" id="form">
+            <div class="container">
+                <div class="footer-top__wrapper">
+                    <span class="footer-top__title">Ready to try?</span>
+                    <p class="footer-top__text">Create unlimited on-demand environments for Your Demos, QA and Sandboxes</p>
+                    <div class="footer-top__form">
+                        <div class="footer-form">
+                            <div class="footer-form__field footer-form__field--no-border">
+                                  <div class="form-field">
+                                    <input type="text" class="form-field__input " placeholder="Enter your email">
+                                  </div>
+                                <div class="form-field__input-btn">
+                                    <button type="button" class="btn btn--small">Submit</button>
+                                </div>
+                            </div>
+                            <div class="footer-form__buttons">
+                                <div class="footer-form__cta">
+                                        <a href="#" class="btn btn--100 btn--yellow ">Get started</a>
+                                </div>
+                                <div class="footer-form__cta">
+                                        <a href="#" class="btn btn--100 btn--yellow ">Get a Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>    <div class="footer-bottom">
+            <div class="container--large">
+                <div class="footer-bottom__wrapper">
+                    <div class="footer-bottom__left">
+                        <a href="#" class="logo logo--dark">
+                            <span class="logo__text">stagy<span class="logo__domain">.dev</span></span>
+                        </a>            </div>
+                    <nav class="footer-bottom__center">
+                        <ul class="footer-bottom__nav">
+                            <li class="footer-bottom__nav-item"><a href="/faq" class="footer-bottom__info-link">FAQ</a></li>
+                            <li class="footer-bottom__nav-item"><a href="/pricing" class="footer-bottom__info-link">Pricing</a></li>
+                            <li class="footer-bottom__nav-item"><a href="#" class="footer-bottom__info-link">Terms of Service</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="footer-bottom__right">
+                        <ul class="footer-bottom__socials">
+                            <li class="footer-bottom__socials-item"><a href="#" class="footer-bottom__socials-link">
+                                <svg width="19" height="18" viewbox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="linkedin" fill-rule="evenodd" clip-rule="evenodd" d="M4.58147 2.09779C4.55504 0.906987 3.6971 0 2.30395 0C0.910796 0 0 0.906987 0 2.09779C0 3.26393 0.883876 4.19703 2.25109 4.19703H2.27711C3.6971 4.19703 4.58147 3.26393 4.58147 2.09779ZM4.31324 5.85474H0.240805V17.9997H4.31324V5.85474ZM14.3111 5.56958C16.9909 5.56958 19 7.30577 19 11.0362L18.9998 17.9997H14.9276V11.5022C14.9276 9.87011 14.3383 8.75645 12.864 8.75645C11.7389 8.75645 11.0688 9.50722 10.7744 10.2324C10.6668 10.4922 10.6403 10.8543 10.6403 11.2173V18H6.56741C6.56741 18 6.62109 6.99471 6.56741 5.85509H10.6403V7.57532C11.1808 6.74837 12.1489 5.56958 14.3111 5.56958Z" fill="white"/>
+                                </svg>
+                            </a></li>
+                            <li class="footer-bottom__socials-item"><a href="#" class="footer-bottom__socials-link">
+        
+                                <svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="twitter" d="M9.401 4.25625L9.44297 4.9483L8.74349 4.86356C6.19739 4.53872 3.97304 3.4371 2.08445 1.58693L1.16114 0.668915L0.923313 1.34684C0.419688 2.85804 0.741448 4.45398 1.79067 5.52735C2.35025 6.12054 2.22434 6.20528 1.25906 5.85219C0.923313 5.7392 0.629531 5.65446 0.601552 5.69683C0.503625 5.7957 0.839375 7.08092 1.10518 7.58937C1.46891 8.29553 2.21035 8.98758 3.02175 9.39716L3.70724 9.72199L2.89584 9.73612C2.11243 9.73612 2.08445 9.75024 2.16839 10.0468C2.44818 10.9649 3.55335 11.9394 4.78444 12.3631L5.65179 12.6597L4.89636 13.1116C3.77719 13.7613 2.46217 14.1285 1.14715 14.1567C0.517615 14.1709 0 14.2273 0 14.2697C0 14.411 1.70673 15.2019 2.69999 15.5126C5.67977 16.4306 9.21914 16.0351 11.8772 14.4674C13.7658 13.3517 15.6543 11.1343 16.5357 8.98758C17.0113 7.84359 17.487 5.75333 17.487 4.75057C17.487 4.10089 17.529 4.01615 18.3124 3.23937C18.774 2.78742 19.2077 2.2931 19.2916 2.15187C19.4315 1.88352 19.4175 1.88352 18.7041 2.12362C17.515 2.54732 17.3471 2.49083 17.9346 1.85528C18.3683 1.40333 18.8859 0.584174 18.8859 0.344077C18.8859 0.301707 18.6761 0.372324 18.4383 0.499434C18.1865 0.640668 17.6269 0.852518 17.2072 0.979629L16.4518 1.21973L15.7663 0.753655C15.3885 0.499434 14.8569 0.216967 14.5771 0.132227C13.8637 -0.0655006 12.7725 -0.0372539 12.129 0.18872C10.3803 0.824272 9.27509 2.46258 9.401 4.25625Z" fill="white"/>
+                                </svg>
+                            </a></li>
+                            <li class="footer-bottom__socials-item"><a href="#" class="footer-bottom__socials-link">
+                                <svg width="10" height="18" viewbox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="facebook" d="M8.94102 10.0485L9.43689 6.81553H6.33495V4.71845C6.33495 3.83374 6.76748 2.97087 8.1568 2.97087H9.56796V0.218447C9.56796 0.218447 8.28786 0 7.06456 0C4.50874 0 2.83981 1.54879 2.83981 4.35146V6.81553H0V10.0485H2.83981V17.8646C3.40995 17.9541 3.9932 18 4.58738 18C5.18155 18 5.76481 17.9541 6.33495 17.8646V10.0485H8.94102Z" fill="white"/>
+                                </svg>
+                            </a></li>
+                            <li class="footer-bottom__socials-item"><a href="#" class="footer-bottom__socials-link">
+                                <svg width="22" height="16" viewbox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path id="youtube" fill-rule="evenodd" clip-rule="evenodd" d="M19.3347 1.12477C20.2526 1.37665 20.9756 2.11884 21.2209 3.06134C21.6667 4.76952 21.6667 8.33366 21.6667 8.33366C21.6667 8.33366 21.6667 11.8977 21.2209 13.606C20.9756 14.5485 20.2526 15.2907 19.3347 15.5427C17.6712 16.0003 11 16.0003 11 16.0003C11 16.0003 4.32889 16.0003 2.66525 15.5427C1.74731 15.2907 1.0244 14.5485 0.779071 13.606C0.333374 11.8977 0.333374 8.33366 0.333374 8.33366C0.333374 8.33366 0.333374 4.76952 0.779071 3.06134C1.0244 2.11884 1.74731 1.37665 2.66525 1.12477C4.32889 0.666992 11 0.666992 11 0.666992C11 0.666992 17.6712 0.666992 19.3347 1.12477ZM9.00005 5.33374V12.0004L14.3334 8.6672L9.00005 5.33374Z" fill="white"/>
+                                </svg>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom__email">
+                    <a href="mailto:deployqa@cleverlabs.io" class="footer-bottom__email-link">deployqa@cleverlabs.io</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  </div>
+
+  <script src="static/js/vendors.js?v=2" defer></script>
+  <script src="static/js/main.js?v=2" defer></script>
+
+</body>
+</html>

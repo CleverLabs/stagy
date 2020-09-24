@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   root "landings#index"
   get "/landings", to: "landings#create"
+  get "/roles", to: "landings#roles"
+  get "/pricing", to: "landings#pricing"
+  get "/faq", to: "landings#faq"
 
   get "/auth/slack/callback", to: "slack/authentications#create"
   get "/auth/failure", to: "slack/authentications#show"
