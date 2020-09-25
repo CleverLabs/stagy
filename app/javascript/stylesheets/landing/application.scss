@@ -1082,15 +1082,7 @@ body.menu-opened:before {
     margin: 48px auto 0
 }
 
-.footer-top__form input::-webkit-input-placeholder {
-    color: #121726
-}
-
 .footer-top__form input:-ms-input-placeholder, .footer-top__form input::-ms-input-placeholder {
-    color: #121726
-}
-
-.footer-top__form input::placeholder {
     color: #121726
 }
 
@@ -3550,15 +3542,7 @@ body.menu-opened:before {
     max-width: 400px
 }
 
-.hero__form-field input::-webkit-input-placeholder {
-    color: #000
-}
-
 .hero__form-field input:-ms-input-placeholder, .hero__form-field input::-ms-input-placeholder {
-    color: #000
-}
-
-.hero__form-field input::placeholder {
     color: #000
 }
 
