@@ -32,7 +32,7 @@ module Github
         end
 
         def create_deployment_links(result)
-          comment = Notifications::Comment.new(result.object)
+          comment = Notifications::Comment.new(ProjectInstanceDomain.new(record: result.object))
           text = result.ok? ? comment.header : comment.failure_header
 
           Github::PullRequest.new(@project.integration_id, @wrapped_body.full_repo_name, @wrapped_body.number).add_to_first_comment(text)

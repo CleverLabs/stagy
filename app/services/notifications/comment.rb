@@ -9,8 +9,9 @@ module Notifications
 }
     # rubocop:enable Layout/LineLength
 
-    def initialize(project_instance)
-      @project_instance = project_instance
+    def initialize(project_instance_domain)
+      @project_instance_domain = project_instance_domain
+      @project_instance = project_instance_domain.project_instance_record
     end
 
     def failure_header
@@ -31,7 +32,7 @@ module Notifications
     end
 
     def deployed
-      @project_instance.configurations.inject("Application `#{@project_instance.name}` deployed!\n") do |result, configuration|
+      @project_instance_domain.configurations.inject("Application `#{@project_instance.name}` deployed!\n") do |result, configuration|
         result + "#{configuration.repo_path}:`#{configuration.git_reference}` url: #{configuration.application_url}\n"
       end
     end

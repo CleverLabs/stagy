@@ -1787,7 +1787,7 @@ body.menu-opened:before {
     }
 }
 
-.logo:before {
+/*.logo:before {
     content: "";
     position: absolute;
     left: 0;
@@ -1812,7 +1812,7 @@ body.menu-opened:before {
         background-position: -951px -627px
     }
 }
-
+*/
 .logo--dark:before {
     display: block;
     background-color: transparent;
@@ -1838,7 +1838,8 @@ body.menu-opened:before {
 .logo__text {
     font-family: Sora, Arial, sans-serif;
     font-size: 22px;
-    line-height: 24px
+    line-height: 24px;
+    margin-left: 5px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -3071,7 +3072,8 @@ body.menu-opened:before {
 .header-menu__link--dropdown {
     padding-right: 20px;
     position: relative;
-    margin-right: 5px
+    margin-right: 5px;
+    cursor: pointer;
 }
 
 .header-menu__link--dropdown::after {

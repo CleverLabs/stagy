@@ -1,0 +1,55 @@
+en:
+  landing:
+    roles:
+      for-managers:
+        subheader: Effortless stagings for Demo and changes review
+        role-name: product managers
+        how-it-helps:
+          - - ⏱ Easy creation
+            - To create a new application instance all you need is to click a button. Stagy will spin up a new server, deploy code, and give you a link to a new freshly created instance
+          - - 🔥 Feature preview
+            - Watch your team’s progress during a sprint. You can create an environment for every pull request and see the result
+          - - 🖥 Demo
+            - Do you need to present your product or features to stakeholders? With Stagy you can do it without an effort and use the data you need. Don't use production for a demo - create a separate clean instance for each demo
+          - - 💁‍♀️ UAT
+            - Stagy is a perfect fit for UAT - just create an instance with needed features and let your team use it!
+          - - Prototyping 🏗
+            - See the result on the production-like machine before deploying to production. Experiment with different versions and implementations by creating separate staging for each of them
+      for-qa:
+        subheader: Single-click staging for feature testing
+        role-name: quality assurance
+        how-it-helps:
+          - - ⏱ Easy creation
+            - To create a new application instance all you need is to click a button. Stagy will spin up a new server, deploy code, and give you a link to a new freshly created instance
+          - - ✅ Test any change 
+            - You can create any amount of staging for any branch to check all possible variation and behavior change
+          - - 🧑‍💻 No developer needed
+            - Ask dev team to deploy, wait until staging isn't busy, populate needed data... Sounds familiar? With Stagy you control how and when to deploy code change for a test!
+          - - 🤘 You rock!
+            - You're doing awesome work and we are here to help you make it easier!
+      for-sales:
+        subheader: Demonstrate and sell in your own unique way
+        role-name: sales team
+        how-it-helps:
+          - - ⏱ Easy creation
+            - To create a new application instance all you need is to click a button. Stagy will spin up a new server, deploy code, and give you a link to a new freshly created instance
+          - - 🗃 Fill any data
+            - Production might not have needed data for demo. Stagy solves this problem by creating a server with data only for demo
+          - - 🏖 Sandbox for customer
+            - You can let your customer use new staging, which is especially useful for API integrations. This way it much easier for a new customer to integrate with your system
+          - - 🎉 You're awesome!
+            - You're doing awesome work and we are here to help you make it easier!
+      for-developers:
+        subheader: Save time on stagings
+        role-name: developers
+        how-it-helps:
+          - - ⏱ Easy creation
+            - To create a new application instance all you need is to click a button. Stagy will spin up a new server, deploy code, and give you a link to a new freshly created instance
+          - - 💤 Sleeping instances
+            - Say no to spending money on idle servers for staging! Stagy sets on pause servers that not in use
+          - - 🌳 Check any branch
+            - Stagy can deploy any branch and any commit - they will work simultaneously for as long as you want
+          - - Let others do deploy
+            - Focus on programming - let us do routine tasks. Don't be distracted by others trying to deploy an application
+          - - 🎉 You're remarkable!
+            - You're doing awesome work - we here to help you do it easier!

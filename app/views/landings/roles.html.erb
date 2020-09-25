@@ -3,8 +3,8 @@
 <section class="section   section--mobile-large">
     <div class="container">
             <header class="page-header">
-                <h1 class="page-header__title">Stagy for <strong>quality assurance</strong></h1>
-                <p class="page-header__text">Single-click staging for feature testing</p>
+                <h1 class="page-header__title">Stagy for <strong><%= I18n.t("landing.roles.#{@role_name}.role-name") %></strong></h1>
+                <p class="page-header__text"><%= I18n.t("landing.roles.#{@role_name}.subheader") %></p>
             </header>
     </div>
 </section><div class="section">
@@ -13,8 +13,9 @@
             <div class="feature__content">
                 <div class="feature__image">
                     <div class="feature__image-wrapper">
-                        <video src="static/video/main.mp4" muted autoplay loop>
-                        </video>
+                        <!-- <video src="/static/video/main.mp4" muted autoplay loop></video> -->
+
+                        <div id="fullAnimation"></div>
                     </div>
                 </div>
             </div>
@@ -23,40 +24,18 @@
 </div><section class="section">
     <div class="container">
         <div class="target">
-            <h2 class="target__section-title">How does it help <br>quality assurance?</h2>
+            <h2 class="target__section-title">How does it help <br><%= I18n.t("landing.roles.#{@role_name}.role-name") %>?</h2>
             <ul class="target-list  target-list--small-margin ">
-                    <li class="target-list__row ">
-                        <div class="target-list__cell-left">
-                            <h3 class="target-list__title">Easy Creation</h3>
-                        </div>
-                        <div class="target-list__cell-right">
-                            <p class="target-list__text">To create a new application instance all you need is to click a button. Stagy will spin up a new server, deploy code, and give you a link to a new freshly created instance</p>
-                        </div>
-                    </li>
-                    <li class="target-list__row target-list__row--reverse">
-                        <div class="target-list__cell-left">
-                            <h3 class="title  title--big target-list__title">Test any change</h3>
-                        </div>
-                        <div class="target-list__cell-right">
-                            <p class="target-list__text">You can create any amount of staging for any branch to check all possible variation and behavior change</p>
-                        </div>
-                    </li>
-                    <li class="target-list__row ">
-                        <div class="target-list__cell-left">
-                            <h3 class="target-list__title">No developer needed</h3>
-                        </div>
-                        <div class="target-list__cell-right">
-                            <p class="target-list__text">Ask dev team to deploy, wait until staging isn’t busy, populate needed data... Sounds familiar? With Stagy you control how and when to deploy code change for a test.</p>
-                        </div>
-                    </li>
-                    <li class="target-list__row target-list__row--reverse">
-                        <div class="target-list__cell-left">
-                            <h3 class="title  title--big target-list__title">You Rock!</h3>
-                        </div>
-                        <div class="target-list__cell-right">
-                            <p class="target-list__text">You are doing awesome work and we are here to help you make it easier </p>
-                        </div>
-                    </li>
+                    <% @texts.each_with_index do |(header, text), index| %>
+                        <li class="target-list__row <%= 'target-list__row--reverse' if index % 2 != 0 %>">
+                            <div class="target-list__cell-left">
+                                <h3 class="target-list__title"><%= header %></h3>
+                            </div>
+                            <div class="target-list__cell-right">
+                                <p class="target-list__text"><%= text %></p>
+                            </div>
+                        </li>
+                    <% end %>
             </ul>
         </div>
     </div>
@@ -83,9 +62,8 @@
                               <picture>
                             
                             
-                                <source data-srcset="static/images/landing/main/staging/staging.png,
-                                          static/images/landing/main/staging/staging@2x.png 2x" type="image/png">
-                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/staging.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt>
+                                <source data-srcset="/static/images/landing/main/staging/staging.png, /static/images/landing/main/staging/staging@2x.png 2x" type="image/png">
+                                <img class="lazy" data-sizes="auto" data-original="/static/images/landing/main/staging/staging.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt>
                               </picture>
                         </div>
                     </div>
