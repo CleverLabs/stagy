@@ -6,10 +6,16 @@ class LandingsController < ApplicationController
   layout "landing"
 
   def index
+    return redirect_to projects_path if authenticated? && Rails.env.production?
+
     render :index
   end
 
   def roles
+    @role_name = params[:role]
+    raise unless %w[for-managers for-qa for-sales for-developers].include? params[:role]
+
+    @texts = I18n.t("landing.roles.#{@role_name}.how-it-helps")
     render :roles
   end
 

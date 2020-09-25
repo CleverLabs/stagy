@@ -22,14 +22,16 @@
                 <h1 class="hero__title">Stagings <br>
                     made simple</h1>
                 <p class="text hero__text">Create unlimitied on-demand environments for Your Demos, QA and Sandboxes </p>
-                <div class="hero__form-field">
-                      <div class="form-field">
-                        <input type="text" class="form-field__input " placeholder="Enter your email">
+                <form action="/landings" method="GET" class="email-field ">
+                  <div class="hero__form-field">
+                        <div class="form-field">
+                          <input type="email" name="email" class="form-field__input " placeholder="Enter your email" required />
+                        </div>
+                      <div class="form-field__input-btn">
+                        <button type="submit" class="btn btn--small">Submit</button>
                       </div>
-                    <div class="form-field__input-btn">
-                            <button type="button" class="btn btn--small">Submit</button>
-                    </div>
-                </div>
+                  </div>
+                </form>
             </div>
         </div>
     </div>
@@ -54,17 +56,16 @@
                 <div class="animate__left">
                     <div class="animate__scene js-slideshow__scene">
                         <div class="animate__slide js-slideshow__slide">
-                            <video src="static/video/stagy-p1.mp4" muted autoplay loop>
+                          <div id="onButtonClick"></div>
+<!--                             <video src="static/video/stagy-p1.mp4" muted autoplay loop type="video/mp4">
                             </video>
-
+ -->
                         </div>
                         <div class="animate__slide js-slideshow__slide">
-                            <video src="static/video/stagy-pt2.mp4" muted autoplay loop>
-                            </video>
+                            <div id="stagyDoingWork"></div>
                         </div>
                         <div class="animate__slide js-slideshow__slide">
-                            <video src="static/video/stagy-pt3.mp4" muted autoplay loop>
-                            </video>
+                            <div id="useYourApp"></div>
                         </div>
                     </div>
                 </div>
@@ -83,8 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-item__image">
-                                    <video src="static/video/stagy-p1.mp4" muted autoplay loop>
-                                    </video>
+                                    <div id="onButtonClickMobile"></div>
                                 </div>
                             </div>
                             <div class="tab-item js-slideshow__tab">
@@ -99,8 +99,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-item__image">
-                                    <video src="static/video/stagy-pt2.mp4" muted autoplay loop>
-                                    </video>
+                                    <div id="stagyDoingWorkMobile"></div>
                                 </div>
                             </div>
                             <div class="tab-item js-slideshow__tab">
@@ -115,8 +114,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-item__image">
-                                    <video src="static/video/stagy-pt3.mp4" muted autoplay loop>
-                                    </video>
+                                    <div id="useYourAppMobile"></div>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +176,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="target-list__title">Product <br>Managers</h3>
                                 <div class="target-list__link">
-                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-managers" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -190,7 +188,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="title  title--big target-list__title">Quality <br>Assurance</h3>
                                 <div class="target-list__link">
-                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-qa" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -202,7 +200,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="target-list__title">Sales <br> Managers</h3>
                                 <div class="target-list__link">
-                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-sales" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -214,7 +212,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="title  title--big target-list__title">Developers</h3>
                                 <div class="target-list__link">
-                                    <a href="#" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-developers" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -235,8 +233,7 @@
                     <div class="staging__left">
                         <div class="staging__left-top">
                             <span class="staging__title">Stagings made simple</span>
-                            <p class="staging__text">Create unlimitied on-demand environments for Your Demos, QA and
-                                Sandboxes
+                            <p class="staging__text">Create unlimitied on-demand environments for Your Demos, QA and Sandboxes
                             </p>
                         </div>
                         <div class="staging__left-bottom">

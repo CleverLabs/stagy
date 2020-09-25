@@ -66,7 +66,7 @@ module Deployment
       return if @comment_types == :no_comments
 
       comment_type = @comment_types.fetch(event.to_sym)
-      comment = Notifications::Comment.new(@project_instance)
+      comment = Notifications::Comment.new(@project_instance_domain)
       text = COMMENT_MESSAGES.fetch(comment_type).call(comment)
 
       Deployment::PullRequestNotificator.new(@project_instance).call(text) if @message_policy.pull_request_comments?

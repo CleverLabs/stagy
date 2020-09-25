@@ -31,7 +31,7 @@ module GitlabIntegration
         end
 
         def create_deployment_links(result)
-          comment = Notifications::Comment.new(result.object)
+          comment = Notifications::Comment.new(ProjectInstanceDomain.new(record: result.object))
           text = result.ok? ? comment.header : comment.failure_header
 
           GitlabIntegration::MergeRequest.new(repository.integration_id, @merge_request.number).update_description(text)
