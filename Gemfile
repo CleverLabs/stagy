@@ -7,6 +7,7 @@ ruby "2.7.1"
 
 gem "dotenv-rails", groups: %i[development test]
 
+gem "actionpack-page_caching"
 gem "aws-sdk-ecr"
 gem "aws-sdk-iam"
 gem "aws-sdk-s3"

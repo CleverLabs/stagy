@@ -5,6 +5,8 @@ class LandingsController < ApplicationController
 
   layout "landing"
 
+  caches_page :index, :roles, :pricing, :faq
+
   def index
     return redirect_to projects_path if authenticated? && Rails.env.production?
 
