@@ -41,7 +41,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <%= stylesheet_pack_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload', defer: true %>
 
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6898069.js"></script>
 
@@ -202,8 +202,8 @@
 
   </div>
 
-  <script src="/static/js/vendors.js?v=3" defer></script>
+<!--   <script src="/static/js/vendors.js?v=3" defer></script>
   <script src="/static/js/main.js?v=3" defer></script>
-
+ -->
 </body>
 </html>
