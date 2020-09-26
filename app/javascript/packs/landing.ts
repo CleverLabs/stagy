@@ -1,7 +1,7 @@
 require('./landing/vendors.js');
 require('./landing/main.js');
 
-const lottie = require('lottie-web')
+const lottie = require('lottie-web');
 
 function isVisible(element: any): boolean {
   if (!element) {
