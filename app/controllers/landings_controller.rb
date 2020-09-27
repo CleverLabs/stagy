@@ -5,7 +5,8 @@ class LandingsController < ApplicationController
 
   layout "landing"
 
-  caches_page :index, :roles, :pricing, :faq
+  caches_page :roles, :pricing, :faq
+  caches_page :index, if: -> { !authenticated? }
 
   def index
     return redirect_to projects_path if authenticated? && Rails.env.production?
@@ -15,7 +16,7 @@ class LandingsController < ApplicationController
 
   def roles
     @role_name = params[:role]
-    raise unless %w[for-managers for-qa for-sales for-developers].include? params[:role]
+    raise unless %w[for-managers for-qa for-sales for-developers].include? @role_name
 
     @texts = I18n.t("landing.roles.#{@role_name}.how-it-helps")
     render :roles

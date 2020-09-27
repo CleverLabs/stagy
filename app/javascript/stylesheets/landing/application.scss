@@ -2253,7 +2253,6 @@ body.menu-opened:before {
     .tab-item.active .tab-item__content {
         border-left: 4px solid #435fe4;
         opacity: 1;
-        padding: 8px 24px
     }
 
     .tab-item.active .tab-item__title {
@@ -2263,7 +2262,7 @@ body.menu-opened:before {
     .tab-item {
         border-left: 0;
         padding: 0;
-        margin-top: 50px
+        margin-bottom: 60px;
     }
 
     .tab-item:first-child {
@@ -2363,7 +2362,8 @@ body.menu-opened:before {
 @media (max-width: 767px) {
     .tab-item__image {
         display: block;
-        margin-top: 50px
+        margin-top: 15px;
+        min-height: 175px;
     }
 }
 
@@ -2374,7 +2374,7 @@ body.menu-opened:before {
 
 @media (max-width: 767px) {
     .tab-item__content {
-        padding-left: 20px;
+        padding: 8px 24px;
         border-left: 4px solid #d4d5d9
     }
 }
@@ -3704,8 +3704,8 @@ body.menu-opened:before {
 
 @media (min-width: 768px) {
     .animate__slide {
-        min-height: 50vh;
-        max-height: 480px;
+        min-height: 530px;
+        max-height: 530px;
         display: flex;
         align-items: flex-start;
         justify-content: center
