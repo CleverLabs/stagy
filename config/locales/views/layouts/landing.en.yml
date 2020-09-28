@@ -1,0 +1,11 @@
+en:
+  layouts:
+    landing:
+      title: 
+        index: Stagy on-demand environments - create unlimited staging servers easily
+        pricing: Stagy - pricing. Pay only for what you use
+        faq: Stagy - FAQ
+        rolesfor-managers: Stagy for Managers - on-demand staging environments
+        rolesfor-sales: Stagy for Sales - on-demand staging environments
+        rolesfor-qa: Stagy for QA - on-demand staging environments
+        rolesfor-developers: Stagy for Developers - on-demand staging environments

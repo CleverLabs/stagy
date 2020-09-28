@@ -1751,8 +1751,8 @@ var Coin = /*#__PURE__*/function (_Widget) {
     value: function onScroll() {
       var pos = getScrollPos();
 
-      if (pos >= this.top - window.innerHeight + 300) {
-        var delta = Math.max(0, Math.min(this.height, (pos - (this.top - window.innerHeight + 300)) / this.k));
+      if (pos >= this.top - window.innerHeight + 500) {
+        var delta = Math.max(0, Math.min(this.height, (pos - (this.top - window.innerHeight + 500)) / this.k));
         this.setPosition(delta);
       }
     }
