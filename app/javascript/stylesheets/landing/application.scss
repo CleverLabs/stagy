@@ -15,6 +15,42 @@
     }
 }
 
+
+
+
+@keyframes fadeInUp {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    100% { opacity: 1; }
+
+}
+
+@-webkit-keyframes fadeInUp {
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.animated-thing {
+    animation-duration: 1.0s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1.0s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
+
+
+
+
 html {
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -2126,12 +2162,16 @@ body.menu-opened:before {
 }
 
 @media (max-width: 767px) {
-    .tab-item .tab-item__content {
+    .tab-item .tab-item__content, .tab-item__image {
         opacity: .32
     }
 
     .tab-item.active .tab-item__content {
         border-left: 4px solid #435fe4;
+        opacity: 1;
+    }
+
+    .tab-item.active .tab-item__image {
         opacity: 1;
     }
 
@@ -3857,12 +3897,14 @@ body.menu-opened:before {
 }
 
 .feature__image-wrapper {
-    max-width: 650px
+    max-width: 650px;
+    min-height: 408px;
 }
 
 @media (max-width: 1024px) {
     .feature__image-wrapper {
-        max-width: 510px
+        max-width: 510px;
+        min-height: 177px;
     }
 }
 

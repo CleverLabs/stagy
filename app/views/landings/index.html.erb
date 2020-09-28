@@ -14,13 +14,13 @@
                 
                   <source data-srcset="static/images/landing/main/bg/bg.webp, static/images/landing/main/bg/bg@2x.webp 2x" type="image/webp">
                 <source data-srcset="static/images/landing/main/bg/bg.png, static/images/landing/main/bg/bg@2x.png 2x" type="image/png">
-                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/bg/bg.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/bg/bg.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="background">
               </picture>
         </div>
         <div class="hero__inner container">
             <div class="hero__content">
-                <h1 class="hero__title">Stagings <br> made simple</h1>
-                <p class="text hero__text">Create unlimited on-demand environments for Your Demos, QA and Sandboxes </p>
+                <h1 class="hero__title fadeInUp animated-thing animatedFadeInUp">Stagings <br> made simple</h1>
+                <p class="text hero__text fadeInUp animated-thing animatedFadeInUp">Create unlimited on-demand environments for Your Demos, QA and Sandboxes </p>
                 <form action="/landings" method="GET" class="email-field ">
                   <div class="hero__form-field">
                         <div class="form-field">
@@ -52,12 +52,15 @@
             <div class="animate__wrapper">
                 <div class="animate__left">
                     <div class="animate__scene js-slideshow__scene">
+                        <div id="onButtonClickAncor" style="position: relative; top: -250px;"></div>
                         <div class="animate__slide js-slideshow__slide">
                           <div id="onButtonClick"></div>
                         </div>
+                        <div id="stagyDoingWorkAncor" style="position: relative; top: -250px;"></div>
                         <div class="animate__slide js-slideshow__slide">
                             <div id="stagyDoingWork"></div>
                         </div>
+                        <div id="useYourAppAncor" style="position: relative; top: -250px;"></div>
                         <div class="animate__slide js-slideshow__slide">
                             <div id="useYourApp"></div>
                         </div>
@@ -68,7 +71,7 @@
                         <div class="tab__wrapper">
                             <div class="tab-item js-slideshow__tab">
                                 <div class="tab-item__content">
-                                    <span class="tab-item__title">Click the button</span>
+                                    <a href="#onButtonClickAncor" class="tab-item__title js-scroll-to">Click the button</a>
                                     <div class="tab-item__body">
                                         <div class="tab-item__body-inner">
                                             <p>The "Deploy" button initiates the creation of staging. That's the only thing you need to create a copy of your production</p>
@@ -81,7 +84,7 @@
                             </div>
                             <div class="tab-item js-slideshow__tab">
                                 <div class="tab-item__content">
-                                    <span class="tab-item__title">Stagy doing work...</span>
+                                    <a href="#stagyDoingWorkAncor" class="tab-item__title js-scroll-to">Stagy doing work...</a>
                                     <div class="tab-item__body">
                                         <div class="tab-item__body-inner">
                                             <p>...just a little time for the app to make things happen</p>
@@ -94,7 +97,7 @@
                             </div>
                             <div class="tab-item js-slideshow__tab">
                                 <div class="tab-item__content">
-                                    <span class="tab-item__title">Use your app!</span>
+                                    <a href="#useYourAppAncor" class="tab-item__title js-scroll-to">Use your app!</a>
                                     <div class="tab-item__body">
                                         <div class="tab-item__body-inner">
                                             <p>Your application copy is accessible from the browser by a special URL.</p>
@@ -133,7 +136,7 @@
                                             
                                             
                                                 <source data-srcset="static/images/landing/main/coin.png, static/images/landing/main/coin@2x.png 2x" type="image/png">
-                                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/coin.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/coin.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="simple coin">
                                               </picture>
                                         </div>
                                     </div>
@@ -143,7 +146,7 @@
                                     
                                     
                                         <source data-srcset="static/images/landing/main/staging/save.png, static/images/landing/main/staging/save@2x.png 2x" type="image/png">
-                                        <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/save.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                        <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/save.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="stylized coin">
                                       </picture>
                                 </div>
                             </div>
@@ -158,11 +161,11 @@
         <div class="target">
             <h2 class="target__section-title">Who is this product for?</h2>
             <ul class="target-list ">
-                    <li class="target-list__row ">
+                    <li class="target-list__row">
                         <div class="target-list__cell-left">
                             <h3 class="target-list__title">Product <br>Managers</h3>
                                 <div class="target-list__link">
-                                    <a href="/roles/for-managers" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-managers" class="target-list__link-item">For product manager  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -174,7 +177,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="title  title--big target-list__title">Quality <br>Assurance</h3>
                                 <div class="target-list__link">
-                                    <a href="/roles/for-qa" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-qa" class="target-list__link-item">For QA  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -186,7 +189,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="target-list__title">Sales <br> Managers</h3>
                                 <div class="target-list__link">
-                                    <a href="/roles/for-sales" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-sales" class="target-list__link-item">For sales  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -198,7 +201,7 @@
                         <div class="target-list__cell-left">
                             <h3 class="title  title--big target-list__title">Developers</h3>
                                 <div class="target-list__link">
-                                    <a href="/roles/for-developers" class="target-list__link-item">Learn more  <span class="target-list__icon-next"><i></i></span>
+                                    <a href="/roles/for-developers" class="target-list__link-item">For developers  <span class="target-list__icon-next"><i></i></span>
                                     </a>
                                 </div>
                         </div>
@@ -231,7 +234,7 @@
                         <div class="staging__right-wrapper">
                               <picture>
                                 <source data-srcset="static/images/landing/main/staging/staging.png, static/images/landing/main/staging/staging@2x.png 2x" type="image/png">
-                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/staging.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                <img class="lazy" data-sizes="auto" data-original="static/images/landing/main/staging/staging.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Stagy example usage">
                               </picture>
                         </div>
                     </div>

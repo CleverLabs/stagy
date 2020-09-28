@@ -7,9 +7,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Stagy on-demand environments</title>
-    <meta name="description" content="Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments." />
-    <meta name="keywords" content="stagy,deployqa,staging,deployment,qa,demo,on demand,environment" />
+    <title><%= t(".title.#{action_name}#{@role_name}", default: "Stagy") %></title>
+    <meta name="description" content="Stagy is a platform built to automate creation of on-demand QA, Demo and sandbox environments. Create staging by one button click" />
+    <meta name="keywords" content="stagy,deployqa,staging,server,deployment,qa,demo,on demand,environment" />
 
 
 
@@ -43,10 +43,20 @@
     <%= stylesheet_pack_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'landing', media: 'all', 'data-turbolinks-track': 'reload', defer: true %>
 
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6898069.js"></script>
 
     <% if Rails.env.production? %>
-      <%= render partial: "layouts/google_analytics" %>
+        <script type="text/javascript">
+            window.hsConversationsSettings = { loadImmediately: false };
+
+            setTimeout(function() {
+              if (window.HubSpotConversations) {
+                window.HubSpotConversations.widget.load({ widgetOpen: true });
+              }
+            }, 12000);
+        </script>
+
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6898069.js"></script>
+        <%= render partial: "layouts/google_analytics" %>
     <% end %>
 </head>
 
@@ -64,7 +74,7 @@
                 <div class="header__left">
                     <a href="/" class="logo ">
                       <!-- <img class="header_logo" src="static/images/logo.svg" alt=""> -->
-                      <%= image_pack_tag 'media/images/logos/deployqa-icon.svg', class: "mr-2", size: "32x32" %>
+                      <%= image_pack_tag 'media/images/logos/deployqa-icon.svg', class: "mr-2", size: "32x32", alt: "Stagy logo" %>
                       <span class="logo__text">stagy<span class="logo__domain">.dev</span></span>
                     </a>
                   </div>
@@ -144,7 +154,7 @@
                                           <a href="#" class="btn btn--100 btn--yellow ">Get started</a>
                                   </div>
                                   <div class="footer-form__cta">
-                                          <a href="#" class="btn btn--100 btn--yellow ">Get a Demo</a>
+                                          <a href="https://calendly.com/eugene-haisenka/30min" target="_blank" rel="noopener noreferrer" class="btn btn--100 btn--yellow ">Get a Demo</a>
                                   </div>
                               </div>
                           </div>
@@ -156,9 +166,10 @@
                 <div class="footer-bottom__wrapper">
                     <div class="footer-bottom__left">
                         <a href="/" class="logo logo--dark">
-                            <%= image_pack_tag 'media/images/logos/deployqa-icon.svg', class: "mr-2", size: "32x32" %>
+                            <%= image_pack_tag 'media/images/logos/deployqa-icon.svg', class: "mr-2", size: "32x32", alt: "Stagy logo" %>
                             <span class="logo__text">stagy<span class="logo__domain">.dev</span></span>
-                        </a>            </div>
+                        </a>
+                    </div>
                     <nav class="footer-bottom__center">
                         <ul class="footer-bottom__nav">
                             <li class="footer-bottom__nav-item"><a href="/faq" class="footer-bottom__info-link">FAQ</a></li>

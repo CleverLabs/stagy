@@ -22,7 +22,7 @@ en:
           - - ⏱ Easy creation
             - To create a new application instance all you need is to click a button. Stagy will spin up a new server, deploy code, and give you a link to a new freshly created instance
           - - ✅ Test any change 
-            - You can create any amount of staging for any branch to check all possible variation and behavior change
+            - You can create any amount of staging for any branch to check all possible variations and behavior change. QA server setup has never been easier!
           - - 🧑‍💻 No developer needed
             - Ask dev team to deploy, wait until staging isn't busy, populate needed data... Sounds familiar? With Stagy you control how and when to deploy code change for a test!
           - - 🤘 You rock!
@@ -48,7 +48,7 @@ en:
           - - 💤 Sleeping instances
             - Say no to spending money on idle servers for staging! Stagy sets on pause servers that not in use
           - - 🌳 Check any branch
-            - Stagy can deploy any branch and any commit - they will work simultaneously for as long as you want
+            - Stagy can deploy any branch and any commit - they will work simultaneously for as long as you want. QA environment setup has never been easier!
           - - 👨‍💻 Let others do deploy
             - Focus on programming - let us do routine tasks. Don't be distracted by others trying to deploy an application
           - - 🎉 You're remarkable!
