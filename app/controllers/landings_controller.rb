@@ -34,6 +34,6 @@ class LandingsController < ApplicationController
     return redirect_to("/") if params[:email].blank?
 
     WaitingList.create(email: params[:email])
-    render :done, layout: false
+    render :done
   end
 end

@@ -1954,7 +1954,7 @@ body.menu-opened:before {
 }
 
 @media (max-width: 767px) {
-    .card-item__wrapper {
+    .card-pricing {
         min-height: 400px
     }
 }
@@ -4219,12 +4219,6 @@ body.menu-opened:before {
     display: flex;
     justify-content: center;
     align-items: center
-}
-
-@media (max-width: 1024px) {
-    .error {
-        align-items: flex-start
-    }
 }
 
 .error__container {
