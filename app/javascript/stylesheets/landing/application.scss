@@ -1638,127 +1638,23 @@ body.menu-opened:before {
     z-index: 1
 }
 
-.loader__circle {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    font-weight: 700
-}
-
-.loader__circle:before {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 10px;
-    border: 2px solid #f5f5f5;
-    border-top: 3px solid #435fe4;
-    border-radius: 100%;
-    animation: spin 1s linear infinite
-}
-
-.loader--trans:before {
-    display: none
-}
-
-.loader-small {
-    display: inline-block;
-    vertical-align: top;
-    height: 30px;
-    width: 30px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(72, 127, 254, .75) rgba(72, 127, 254, .75) rgba(72, 127, 254, .25) rgba(72, 127, 254, .25);
-    border-radius: 100%;
-    animation: spin .5s linear infinite
-}
-
-.loader-block {
-    position: relative;
-    min-height: 100px
-}
-
 .logo {
     display: flex;
     align-items: center;
-    padding-left: 60px;
+    padding-left: 30px;
     height: 32px;
-    position: relative
+    position: relative;
+
+    img {
+        height: 100%;
+    }
 }
 
 @media screen and (max-width: 1023px) {
     .logo {
-        padding-left: 45px;
-        height: 24px
-    }
-}
-
-/*.logo:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    display: block;
-    background-color: transparent;
-    background-image: url(/static/images/landing/sprite.svg);
-    background-size: 1014px 677px;
-    width: 48px;
-    height: 32px;
-    background-position: -818px -539px
-}
-
-@media screen and (max-width: 1023px) {
-    .logo:before {
-        display: block;
-        background-color: transparent;
-        background-image: url(/static/images/landing/sprite.svg);
-        background-size: 1014px 677px;
-        width: 37px;
+        padding-left: 0px;
         height: 24px;
-        background-position: -951px -627px
     }
-}
-*/
-.logo--dark:before {
-    display: block;
-    background-color: transparent;
-    background-image: url(/static/images/landing/sprite.svg);
-    background-size: 1014px 677px;
-    width: 48px;
-    height: 32px;
-    background-position: -866px -571px
-}
-
-@media screen and (max-width: 1023px) {
-    .logo--dark:before {
-        display: block;
-        background-color: transparent;
-        background-image: url(/static/images/landing/sprite.svg);
-        background-size: 1014px 677px;
-        width: 37px;
-        height: 24px;
-        background-position: -914px -603px
-    }
-}
-
-.logo__text {
-    font-family: Sora, Arial, sans-serif;
-    font-size: 22px;
-    line-height: 24px;
-    margin-left: 5px;
-}
-
-@media screen and (max-width: 1023px) {
-    .logo__text {
-        font-size: 16px;
-        line-height: 18px
-    }
-}
-
-.logo__domain {
-    font-weight: 600
 }
 
 .header-burger {
