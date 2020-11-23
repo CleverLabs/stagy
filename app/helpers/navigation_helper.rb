@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# rubocop:disable Rails/HelperInstanceVariable, Metrics/ModuleLength
+
 module NavigationHelper
-  # rubocop:disable Rails/HelperInstanceVariable
   BREADCRUMBS_MAPPING = {
     "project_instances#index" => {
       text_and_link: [],
@@ -72,7 +73,6 @@ module NavigationHelper
       last_text_and_link: proc { ["Notifications", project_notifications_path(@project)] }
     }
   }.freeze
-  # rubocop:enable Rails/HelperInstanceVariable
 
   def user_available_projects
     statuses = ProjectInstanceConstants::Statuses::ALL_ACTIVE.map { |status| ProjectInstance.deployment_statuses[status] }.join(", ")
@@ -113,3 +113,5 @@ module NavigationHelper
     end
   end
 end
+
+# rubocop:enable Rails/HelperInstanceVariable, Metrics/ModuleLength
